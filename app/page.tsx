@@ -164,7 +164,8 @@ export default function Portfolio() {
             ))}
           </div>
           {/* Right Section */}
-          <div className="flex items-center space-x-2 md:space-x-4">
+          {/* Adjusted space-x for tighter spacing on all screens */}
+          <div className="flex items-center space-x-2">
             <a
               href="https://github.com/udaynandaniya"
               target="_blank"
@@ -234,7 +235,8 @@ export default function Portfolio() {
                 ))}
                 <motion.div
                   variants={mobileMenuItemVariants}
-                  className="flex items-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700"
+                  // Adjusted space-x for tighter spacing on mobile menu icons
+                  className="flex items-center space-x-2 pt-4 border-t border-gray-200 dark:border-gray-700"
                 >
                   <a
                     href="https://github.com/udaynandaniya"
@@ -826,7 +828,7 @@ export default function Portfolio() {
               <motion.div
                 className="relative pl-8 pb-8 border-l-4 border-gradient-to-b from-blue-600 to-purple-600"
                 initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
@@ -988,7 +990,7 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div
-              className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-8 rounded-2xl glass-effect"
+              className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 glass-effect"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -1019,7 +1021,7 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-2xl glass-effect"
+              className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 glass-effect"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -1090,35 +1092,37 @@ export default function Portfolio() {
               <div className="space-y-6">
                 <a
                   href="mailto:udaynandaniya5@gmail.com"
-                  className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group glass-effect"
+                  className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group glass-effect"
                 >
                   <div className="p-3 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full group-hover:scale-110 transition-transform">
                     <Mail className="text-purple-600 dark:text-purple-400" size={20} />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">Email</p>
-                    <p className="text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                    {/* Added break-words for long email addresses */}
+                    <p className="text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors break-words">
                       udaynandaniya5@gmail.com
                     </p>
                   </div>
                 </a>
                 <a
                   href="mailto:UDAYNANDANIYA.ict22@adaniuni.ac.in"
-                  className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group glass-effect"
+                  className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group glass-effect"
                 >
                   <div className="p-3 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full group-hover:scale-110 transition-transform">
                     <Mail className="text-purple-600 dark:text-purple-400" size={20} />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">Alternate Email</p>
-                    <p className="text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                    {/* Added break-words for long email addresses */}
+                    <p className="text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors break-words">
                       UDAYNANDANIYA.ict22@adaniuni.ac.in
                     </p>
                   </div>
                 </a>
                 <a
                   href="tel:+919898336415"
-                  className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group glass-effect"
+                  className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group glass-effect"
                 >
                   <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full group-hover:scale-110 transition-transform">
                     <Phone className="text-blue-600 dark:text-blue-400" size={20} />
@@ -1130,7 +1134,7 @@ export default function Portfolio() {
                     </p>
                   </div>
                 </a>
-                <div className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 glass-effect">
+                <div className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 glass-effect">
                   <div className="p-3 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 rounded-full">
                     <MapPin className="text-green-600 dark:text-green-400" size={20} />
                   </div>
@@ -1238,7 +1242,8 @@ function ContactForm() {
 
   return (
     <motion.div
-      className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 glass-effect"
+      // Added w-full to ensure the form takes full width of its grid column on all screens
+      className="w-full bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 glass-effect"
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
