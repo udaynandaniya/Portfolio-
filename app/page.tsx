@@ -277,7 +277,9 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div className="space-y-8" variants={containerVariants} initial="hidden" animate="visible">
               <motion.div variants={itemVariants} className="inline-block">
-               
+                <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
+                  👋 Welcome to my portfolio
+                </span>
               </motion.div>
               <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold leading-tight">
                 Hi, I'm{" "}
@@ -342,14 +344,14 @@ export default function Portfolio() {
 
             <motion.div className="flex justify-center" variants={imageVariants} initial="hidden" animate="visible">
               <div className="relative group">
-                <div className="w-80 h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 animate-spin-slow">
-                  <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center">
+                <div className="w-80 h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1">
+                  <div className="w-full h-full rounded-full flex items-center justify-center">
                     <Image
-                      src="/placeholder.svg?height=300&width=300&text=Uday+Nandaniya"
+                      src="/profile.jpg"
                       alt="Uday Nandaniya"
                       width={300}
                       height={300}
-                      className="rounded-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </div>
@@ -1173,13 +1175,10 @@ export default function Portfolio() {
 
       {/* Footer */}
       <footer className="py-8 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
-    <p className="text-gray-600 dark:text-gray-400 font-medium">
-      Thanks for visiting my portfolio! 👋
-    </p>
-   
-  </div>
-</footer>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-600 dark:text-gray-400">© 2024 Uday Nandaniya. Crafted with ❤️ and lots of ☕</p>
+        </div>
+      </footer>
     </div>
   )
 }
