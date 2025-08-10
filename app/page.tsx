@@ -28,11 +28,6 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
   const [isOpen, setIsOpen] = useState(false)
 
-  // Set default theme to light on mount
-  useEffect(() => {
-    setTheme("light")
-  }, [setTheme])
-
   // Updated useEffect for body/html overflow to prevent background scrolling
   useEffect(() => {
     if (isOpen) {
@@ -208,7 +203,7 @@ export default function Portfolio() {
       <AnimatePresence mode="wait">
         {isOpen && (
           <motion.div
-            className="md:hidden fixed top-0 right-0 bottom-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 shadow-xl z-40 overflow-y-auto"
+            className="md:hidden fixed inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 shadow-xl z-40 overflow-y-auto"
             variants={mobileMenuContainerVariants}
             initial="hidden"
             animate="visible"
@@ -278,7 +273,7 @@ export default function Portfolio() {
             <motion.div className="space-y-8" variants={containerVariants} initial="hidden" animate="visible">
               <motion.div variants={itemVariants} className="inline-block">
                 <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
-                  Welcome 
+                 Welcome
                 </span>
               </motion.div>
               <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold leading-tight">
@@ -344,20 +339,18 @@ export default function Portfolio() {
 
             <motion.div className="flex justify-center" variants={imageVariants} initial="hidden" animate="visible">
               <div className="relative group">
-                <div className="w-80 h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1">
-                  <div className="w-full h-full rounded-full flex items-center justify-center">
-                    <Image
-                      src="/profile.jpg"
-                      alt="Uday Nandaniya"
-                      width={300}
-                      height={300}
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
+                <div className="w-64 h-64 xs:w-72 xs:h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/profile.jpg"
+                    alt="Uday Nandaniya"
+                    width={300}
+                    height={300}
+                    className="object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-bounce">
-                  <span className="text-white text-xs">✓</span>
-                </div>
+                {/* <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-bounce">
+                  <span className="text-white text-xs"></span>
+                </div> */}
               </div>
             </motion.div>
           </div>
@@ -818,7 +811,7 @@ export default function Portfolio() {
                     problem-solving skills and technical expertise in competitive programming.
                   </p>
                   <a
-                    href="https://drive.google.com/drive/folders/1tN4Ucupz7RNWncr5nGAI2zsc2QBM9omV?usp=sharing" // Assuming this is the correct link for Hackorbit_Hackathone
+                    href="https://drive.google.com/drive/folders/1iIeFgs8I6aaXmNqMVfrD1T1phubYzyHm" // Assuming this is the correct link for Hackorbit_Hackathone
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium text-sm"
@@ -853,7 +846,7 @@ export default function Portfolio() {
                     <li>• Earned Certificate of Completion and Letter of Recommendation for outstanding performance</li>
                   </ul>
                   <a
-                    href="https://drive.google.com/drive/folders/1tN4Ucupz7RNWncr5nGAI2zsc2QBM9omV?usp=sharing" // Assuming this is the correct link for SkillcraftTechnology
+                    href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm" // Assuming this is the correct link for SkillcraftTechnology
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium text-sm"
@@ -1028,7 +1021,7 @@ export default function Portfolio() {
             <motion.div
               className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-2xl glass-effect"
               initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5 }}
             >
@@ -1247,7 +1240,7 @@ function ContactForm() {
     <motion.div
       className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 glass-effect"
       initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
     >
