@@ -345,7 +345,7 @@ export default function Portfolio() {
               <div className="relative group">
                 <div className="w-64 h-64 xs:w-72 xs:h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 flex items-center justify-center overflow-hidden">
                   <Image
-                    src="/images/profile-circular-transparent.png"
+                    src="/profile.jpg"
                     alt="Uday Nandaniya"
                     width={300}
                     height={300}
