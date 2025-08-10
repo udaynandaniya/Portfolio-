@@ -140,9 +140,9 @@ export default function Portfolio() {
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 shadow-lg">
-        <div className="max-w-6xl mx-auto px-4 sm:px-4 lg:px-8">
+        <div className="max-w-6xl mx-auto px-2 xs:px-3 sm:px-4 lg:px-8">
           {" "}
-          {/* Adjusted padding to px-3 for smaller screens */}
+          {/* Adjusted padding for better mobile fit */}
           <div className="flex items-center justify-between h-16">
             <div className="font-bold text-xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Uday Nandaniya
@@ -165,9 +165,9 @@ export default function Portfolio() {
               ))}
             </div>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1">
               {" "}
-              {/* Adjusted space-x to space-x-3 for tighter spacing */}
+              {/* Further reduced space-x for tighter icon grouping */}
               <a
                 href="https://github.com/udaynandaniya"
                 target="_blank"
@@ -277,7 +277,7 @@ export default function Portfolio() {
             <motion.div className="space-y-8" variants={containerVariants} initial="hidden" animate="visible">
               <motion.div variants={itemVariants} className="inline-block">
                 <span className="px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
-                 Welcome 
+                Welcome
                 </span>
               </motion.div>
               <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-bold leading-tight">
@@ -345,7 +345,7 @@ export default function Portfolio() {
               <div className="relative group">
                 <div className="w-64 h-64 xs:w-72 xs:h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 flex items-center justify-center overflow-hidden">
                   <Image
-                    src="./profile.jpg"
+                    src="/images/profile-circular-transparent.png"
                     alt="Uday Nandaniya"
                     width={300}
                     height={300}
@@ -815,7 +815,7 @@ export default function Portfolio() {
                     problem-solving skills and technical expertise in competitive programming.
                   </p>
                   <a
-                    href="https://drive.google.com/drive/folders/1iIeFgs8I6aaXmNqMVfrD1T1phubYzyHm" // Assuming this is the correct link for Hackorbit_Hackathone
+                    href="https://drive.google.com/drive/folders/1iIeFgs8I6aaXmNqMVfrD1T1phubYzyHm" // Updated link
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium text-sm"
@@ -850,7 +850,7 @@ export default function Portfolio() {
                     <li>• Earned Certificate of Completion and Letter of Recommendation for outstanding performance</li>
                   </ul>
                   <a
-                    href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm" // Assuming this is the correct link for SkillcraftTechnology
+                    href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm" // Updated link
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium text-sm"
@@ -994,7 +994,7 @@ export default function Portfolio() {
             <motion.div
               className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-8 rounded-2xl glass-effect"
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5 }}
             >
@@ -1150,8 +1150,7 @@ export default function Portfolio() {
                   href="https://github.com/udaynandaniya"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-full hover:from-purple-600 hover:to-blue-600 hover:text-white transition-
-all duration-300 hover:scale-110 shadow-lg"
+                  className="p-4 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-full hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg"
                 >
                   <Github size={24} />
                 </a>
