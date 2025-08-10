@@ -140,8 +140,8 @@ export default function Portfolio() {
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 shadow-lg">
-        {/* Consolidated navbar content container for consistent width */}
-        <div className="max-w-6xl mx-auto h-16 flex items-center justify-between w-full px-4 md:px-8">
+        {/* Consolidated navbar content container for consistent width and padding */}
+        <div className="max-w-6xl mx-auto h-16 flex items-center justify-between w-full px-4 sm:px-6 lg:px-8">
           {/* Brand */}
           <div className="font-bold text-xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent whitespace-nowrap">
             Uday Nandaniya
@@ -372,7 +372,7 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* 1. Rural Reach Healthcare Platform */}
             <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 glass-effect"
@@ -876,7 +876,7 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div
               className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 glass-effect"
               initial={{ opacity: 0, y: 50 }}
@@ -986,7 +986,7 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div
               className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-8 rounded-2xl glass-effect"
               initial={{ opacity: 0, x: -50 }}
@@ -1078,7 +1078,7 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div
               className="space-y-8"
               initial={{ opacity: 0, x: -50 }}
