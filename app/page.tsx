@@ -317,7 +317,7 @@ export default function Portfolio() {
                   variant="outline"
                   onClick={() =>
                     window.open(
-                      "https://drive.google.com/file/d/1N7wwZ5d52-xxqslT8c9BVDp3voqrAeio/view?usp=sharing",
+                      "https://drive.google.com/file/d/14U8BhgyskV4n7npcXsxx5fi4X4KyqG9a/view?usp=drive_link",
                       "_blank",
                     )
                   }
