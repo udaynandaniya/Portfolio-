@@ -357,7 +357,7 @@ export default function Portfolio() {
                 <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 flex items-center justify-center overflow-hidden">
                   <Image
                     // src="/placeholder.svg?height=300&width=300"
-                    src="./profile.jpg"
+                    src="./profile2.png"
 
                     alt="Uday Nandaniya"
                     width={300}
