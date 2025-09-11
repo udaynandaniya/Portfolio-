@@ -317,7 +317,7 @@ export default function Portfolio() {
                   variant="outline"
                   onClick={() =>
                     window.open(
-                      "https://drive.google.com/file/d/1iSPPghoQNgKHAQQuFzmY6m25aOIJayev/view?usp=sharing",
+                      "https://drive.google.com/file/d/1-P0hiP5tKHxvkkTQRHs9ki5Iggcm-SN7/view?usp=drive_link",
                       "_blank",
                     )
                   }
@@ -357,8 +357,7 @@ export default function Portfolio() {
                 <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 flex items-center justify-center overflow-hidden">
                   <Image
                     // src="/placeholder.svg?height=300&width=300"
-                    src="./profile2.png"
-
+                    src="./final_round_img.png"
                     alt="Uday Nandaniya"
                     width={300}
                     height={300}
@@ -1061,19 +1060,19 @@ export default function Portfolio() {
                     Information and Communication Technology
                   </p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Adani University • 2022-2026</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">CGPA: 7.7</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">CGPA: 7.78</p>
                 </div>
                 <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
                   <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
                     Higher Secondary Certificate
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Alpha Vidya Sankul • 67%</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Alpha Vidya Sankul • 67.23%</p>
                 </div>
                 <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
                   <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
                     Secondary School Certificate
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">S.D.B High School • 76%</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">S.D.B High School • 76.66%</p>
                 </div>
               </div>
             </motion.div>
