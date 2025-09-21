@@ -1,3 +1,4 @@
+
 "use client"
 import type React from "react"
 import { useState, useEffect } from "react"
@@ -17,6 +18,7 @@ import {
   Code,
   Database,
   Cpu,
+  Share2,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -130,13 +132,39 @@ export default function Portfolio() {
     visible: { opacity: 1, y: 0 },
   }
 
+  const handleShare = async () => {
+    const shareData = {
+      title: "Uday Nandaniya - Full-Stack Developer Portfolio",
+      text: "Check out my portfolio showcasing full-stack development projects and skills.",
+      url: window.location.href,
+    }
+
+    try {
+      if (navigator.share && navigator.canShare(shareData)) {
+        await navigator.share(shareData)
+      } else {
+        // Fallback: copy to clipboard
+        await navigator.clipboard.writeText(window.location.href)
+        alert("Portfolio link copied to clipboard!")
+      }
+    } catch (error) {
+      // Fallback: copy to clipboard
+      try {
+        await navigator.clipboard.writeText(window.location.href)
+        alert("Portfolio link copied to clipboard!")
+      } catch (clipboardError) {
+        console.error("Failed to share or copy link:", clipboardError)
+      }
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 shadow-lg">
         <div className="max-w-6xl mx-auto h-16 flex items-center justify-between w-full px-4 sm:px-6 lg:px-8">
           {/* Brand */}
-          <div className="font-bold text-lg sm:text-xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent whitespace-nowrap">
+          <div className="font-bold text-lg sm:text-xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent whitespace-nowrap flex-shrink-0">
             Uday Nandaniya
           </div>
 
@@ -159,22 +187,22 @@ export default function Portfolio() {
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 flex-shrink-0">
             <a
               href="https://github.com/udaynandaniya"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 hover:scale-110"
+              className="hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 hover:scale-110 p-1"
             >
-              <Github size={20} />
+              <Github size={18} />
             </a>
             <a
               href="https://www.linkedin.com/in/uday-nandaniya-b990b9287"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 hover:scale-110"
+              className="hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 hover:scale-110 p-1"
             >
-              <Linkedin size={20} />
+              <Linkedin size={18} />
             </a>
             <Button
               variant="ghost"
@@ -182,12 +210,17 @@ export default function Portfolio() {
               onClick={toggleDarkMode}
               className="p-2 hover:scale-110 transition-transform"
             >
-              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </Button>
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? "✕" : "☰"}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 min-w-[40px] h-[40px] flex items-center justify-center"
+              >
+                <span className="text-lg font-medium">{isOpen ? "✕" : "☰"}</span>
               </Button>
             </div>
           </div>
@@ -204,7 +237,7 @@ export default function Portfolio() {
             animate="visible"
             exit="exit"
           >
-            <div className="pt-16">
+            <div className="pt-16 min-h-screen">
               <motion.div
                 className="flex flex-col space-y-4 px-4 py-6"
                 variants={mobileMenuItemsListVariants}
@@ -219,7 +252,7 @@ export default function Portfolio() {
                       scrollToSection(item)
                       setIsOpen(false)
                     }}
-                    className={`capitalize text-left hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-2 ${
+                    className={`capitalize text-left hover:text-purple-600 dark:hover:text-purple-400 transition-colors py-3 text-lg font-medium ${
                       activeSection === item ? "text-purple-600 dark:text-purple-400" : ""
                     }`}
                     variants={mobileMenuItemVariants}
@@ -229,23 +262,23 @@ export default function Portfolio() {
                 ))}
                 <motion.div
                   variants={mobileMenuItemVariants}
-                  className="flex items-center space-x-2 pt-4 border-t border-gray-200 dark:border-gray-700"
+                  className="flex items-center space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700"
                 >
                   <a
                     href="https://github.com/udaynandaniya"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                    className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2"
                   >
-                    <Github size={20} />
+                    <Github size={24} />
                   </a>
                   <a
                     href="https://www.linkedin.com/in/uday-nandaniya-b990b9287"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                    className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors p-2"
                   >
-                    <Linkedin size={20} />
+                    <Linkedin size={24} />
                   </a>
                 </motion.div>
               </motion.div>
@@ -263,7 +296,7 @@ export default function Portfolio() {
           <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Text Content */}
             <motion.div
@@ -292,7 +325,7 @@ export default function Portfolio() {
                 variants={itemVariants}
                 className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium"
               >
-                Full-Stack Developer & Problem Solver
+                Web-Developer & Problem Solver
               </motion.h2>
 
               <motion.p
@@ -317,7 +350,7 @@ export default function Portfolio() {
                   variant="outline"
                   onClick={() =>
                     window.open(
-                      "https://drive.google.com/file/d/1-P0hiP5tKHxvkkTQRHs9ki5Iggcm-SN7/view?usp=drive_link",
+                      "https://drive.google.com/file/d/1l4MHAeYJCj-804QoqyvFxYiebE9Ure7m/view?usp=sharing",
                       "_blank",
                     )
                   }
@@ -398,7 +431,7 @@ export default function Portfolio() {
               transition={{ duration: 0.5 }}
             >
               <div
-                className="h-48 bg-gradient-to-br from-green-400 via-blue-500 to-teal-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
+                className="h-32 sm:h-48 bg-gradient-to-br from-green-400 via-blue-500 to-teal-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
                 onClick={() => window.open("https://rural-reach-one.vercel.app/", "_blank")}
               >
                 <div className="text-white text-center z-10">
@@ -462,7 +495,7 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <div
-                className="h-48 bg-gradient-to-br from-pink-400 via-purple-500 to-fuchsia-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
+                className="h-32 sm:h-48 bg-gradient-to-br from-pink-400 via-purple-500 to-fuchsia-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
                 onClick={() => window.open("https://mahadev-baby-shop.vercel.app/", "_blank")}
               >
                 <div className="text-white text-center z-10">
@@ -524,7 +557,7 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <div
-                className="h-48 bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
+                className="h-32 sm:h-48 bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
                 onClick={() => window.open("https://navneethub.vercel.app/", "_blank")}
               >
                 <div className="text-white text-center z-10">
@@ -586,7 +619,7 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <div
-                className="h-48 bg-gradient-to-br from-orange-400 via-red-500 to-pink-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
+                className="h-32 sm:h-48 bg-gradient-to-br from-orange-400 via-red-500 to-pink-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
                 onClick={() => window.open("https://food-xi-indol.vercel.app/", "_blank")}
               >
                 <div className="text-white text-center z-10">
@@ -648,7 +681,7 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <div
-                className="h-48 bg-gradient-to-br from-purple-400 via-pink-500 to-rose-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
+                className="h-32 sm:h-48 bg-gradient-to-br from-purple-400 via-pink-500 to-rose-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
                 onClick={() => window.open("https://product-selling-app.vercel.app/", "_blank")}
               >
                 <div className="text-white text-center z-10">
@@ -712,7 +745,7 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <div
-                className="h-48 bg-gradient-to-br from-indigo-400 via-blue-500 to-cyan-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
+                className="h-32 sm:h-48 bg-gradient-to-br from-indigo-400 via-blue-500 to-cyan-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
                 onClick={() => window.open("https://university-data-portal.vercel.app/", "_blank")}
               >
                 <div className="text-white text-center z-10">
@@ -842,8 +875,8 @@ export default function Portfolio() {
                   <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-3 text-sm sm:text-base">
                     <li>• Built a fully responsive personal portfolio using React and Tailwind CSS</li>
                     <li>
-                      • Developed a comprehensive e-commerce platform "Baby Shop" using Next.js 15, TypeScript,
-                      and MongoDB
+                      • Developed a comprehensive e-commerce platform "Baby Shop" using Next.js 15, TypeScript, and
+                      MongoDB
                     </li>
                     <li>• Implemented secure JWT-based authentication with email OTP verification</li>
                     <li>• Integrated Cloudinary for media management and Stripe for payment processing</li>
@@ -1222,6 +1255,13 @@ export default function Portfolio() {
                 >
                   <Linkedin size={24} />
                 </a>
+                <button
+                  onClick={handleShare}
+                  className="p-4 bg-gradient-to-r from-green-100 to-green-200 dark:from-green-700 dark:to-green-800 rounded-full hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg"
+                  title="Share Portfolio"
+                >
+                  <Share2 size={24} />
+                </button>
               </div>
             </motion.div>
 
@@ -1307,7 +1347,7 @@ function ContactForm() {
       transition={{ duration: 0.5 }}
     >
       <h3 className="text-xl sm:text-2xl font-bold mb-6 text-gray-900 dark:text-white text-center lg:text-left">
-        Send a Message
+        Send a Message To Me
       </h3>
       <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         <div>
