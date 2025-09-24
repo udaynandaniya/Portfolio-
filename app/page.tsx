@@ -379,28 +379,28 @@ export default function Portfolio() {
               </motion.div>
             </motion.div>
 
-            {/* Image */}
             <motion.div
               className="flex justify-center order-1 lg:order-2"
               variants={imageVariants}
               initial="hidden"
               animate="visible"
             >
+          
+
               <div className="relative group">
-                <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 flex items-center justify-center overflow-hidden">
-                  <Image
-                    // src="/placeholder.svg?height=300&width=300"
-                    src="./final_round_img.png"
-                    alt="Uday Nandaniya"
-                    width={300}
-                    height={300}
-                    className="object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-bounce">
-                  <span className="text-white text-xs">✓</span>
-                </div>
-              </div>
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 p-1 overflow-hidden">
+              <Image
+                src="/me_shoot.png"
+                alt="Uday Nandaniya"
+                fill
+                className="object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            {/* <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-bounce">
+              <span className="text-white text-xs"></span>
+            </div> */}
+          </div>
+
             </motion.div>
           </div>
         </div>
