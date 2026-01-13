@@ -218,7 +218,7 @@ export default function Portfolio() {
               <Github size={18} />
             </a>
             <a
-              href="https://www.linkedin.com/in/uday-nandaniya-b990b9287"
+              href="https://www.linkedin.com/in/uday-nandaniya-"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-300 hover:scale-110 p-1"
@@ -294,7 +294,7 @@ export default function Portfolio() {
                     <Github size={24} />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/uday-nandaniya-b990b9287"
+                    href="https://www.linkedin.com/in/uday-nandaniya-"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-orange-600 dark:hover:text-orange-400 transition-colors p-2"
@@ -415,7 +415,7 @@ export default function Portfolio() {
       {/* Image Wrapper */}
       <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
         <Image
-          src="/me_shoot.png"
+          src="/me__.jpeg"
           alt="Uday Nandaniya"
           fill
           priority
@@ -426,13 +426,7 @@ export default function Portfolio() {
       </div>
     </div>
 
-    {/* Status badge */}
-    <div className="absolute -top-3 -right-3 w-8 h-8 
-                    bg-green-500 rounded-full 
-                    flex items-center justify-center 
-                    animate-bounce shadow-lg">
-      <span className="text-white text-xs font-bold">✓</span>
-    </div>
+  
 
   </div>
 </motion.div>
@@ -1429,7 +1423,7 @@ export default function Portfolio() {
                   <Github size={24} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/uday-nandaniya-b990b9287"
+                  href="https://www.linkedin.com/in/uday-nandaniya-"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-4 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-700 dark:to-orange-800 rounded-full hover:from-orange-600 hover:to-orange-500 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg"
