@@ -1699,6 +1699,7 @@ export default function Portfolio() {
 
 
       <section
+      
   id="certificates"
   className="py-16 sm:py-20 bg-white dark:bg-gray-800"
 >
