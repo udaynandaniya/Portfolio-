@@ -1,9 +1,10 @@
-"use client"
-import type React from "react"
-import { useState, useEffect } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { useTheme } from "next-themes"
-import Swal from "sweetalert2"
+"use client";
+import type React from "react";
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import Swal from "sweetalert2";
+
 import {
   Moon,
   Sun,
@@ -18,60 +19,71 @@ import {
   Database,
   Cpu,
   Share2,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Portfolio() {
-  const { theme, setTheme } = useTheme()
-  const [activeSection, setActiveSection] = useState("home")
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const { theme, setTheme } = useTheme();
+  const [activeSection, setActiveSection] = useState("home");
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"
-      document.documentElement.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""
-      document.documentElement.style.overflow = ""
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ""
-      document.documentElement.style.overflow = ""
-    }
-  }, [isOpen])
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "projects", "internship", "skills", "certificates", "education", "contact"]
-      const scrollPosition = window.scrollY + 100
+      const sections = [
+        "home",
+        "projects",
+        "internship",
+        "skills",
+        "certificates",
+        "education",
+        "contact",
+      ];
+      const scrollPosition = window.scrollY + 100;
 
       for (const sectionId of sections) {
-        const element = document.getElementById(sectionId)
+        const element = document.getElementById(sectionId);
         if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId)
-            break
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(sectionId);
+            break;
           }
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleDarkMode = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId)
-    const element = document.getElementById(sectionId)
-    element?.scrollIntoView({ behavior: "smooth" })
-  }
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
 
   // Framer Motion variants for animations
   const containerVariants = {
@@ -82,7 +94,7 @@ export default function Portfolio() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -95,7 +107,7 @@ export default function Portfolio() {
         damping: 10,
       },
     },
-  }
+  };
 
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -109,7 +121,7 @@ export default function Portfolio() {
         delay: 0.5,
       },
     },
-  }
+  };
 
   const mobileMenuContainerVariants = {
     hidden: { x: "100%" },
@@ -131,7 +143,7 @@ export default function Portfolio() {
         when: "afterChildren",
       },
     },
-  }
+  };
 
   const mobileMenuItemsListVariants = {
     visible: {
@@ -146,38 +158,38 @@ export default function Portfolio() {
         staggerDirection: -1,
       },
     },
-  }
+  };
 
   const mobileMenuItemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
-  }
+  };
 
   const handleShare = async () => {
     const shareData = {
       title: "Uday Nandaniya - Full-Stack Developer Portfolio",
       text: "Check out my portfolio showcasing full-stack development projects and skills.",
       url: window.location.href,
-    }
+    };
 
     try {
       if (navigator.share && navigator.canShare(shareData)) {
-        await navigator.share(shareData)
+        await navigator.share(shareData);
       } else {
         // Fallback: copy to clipboard
-        await navigator.clipboard.writeText(window.location.href)
-        alert("Portfolio link copied to clipboard!")
+        await navigator.clipboard.writeText(window.location.href);
+        alert("Portfolio link copied to clipboard!");
       }
     } catch (error) {
       // Fallback: copy to clipboard
       try {
-        await navigator.clipboard.writeText(window.location.href)
-        alert("Portfolio link copied to clipboard!")
+        await navigator.clipboard.writeText(window.location.href);
+        alert("Portfolio link copied to clipboard!");
       } catch (clipboardError) {
-        console.error("Failed to share or copy link:", clipboardError)
+        console.error("Failed to share or copy link:", clipboardError);
       }
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden">
@@ -191,12 +203,22 @@ export default function Portfolio() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            {["home", "projects", "internship", "skills", "certificates", "education", "contact"].map((item) => (
+            {[
+              "home",
+              "projects",
+              "internship",
+              "skills",
+              "certificates",
+              "education",
+              "contact",
+            ].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
                 className={`capitalize hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-300 relative text-sm lg:text-base ${
-                  activeSection === item ? "text-orange-600 dark:text-orange-400" : ""
+                  activeSection === item
+                    ? "text-orange-600 dark:text-orange-400"
+                    : ""
                 }`}
               >
                 {item}
@@ -241,7 +263,9 @@ export default function Portfolio() {
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 min-w-[40px] h-[40px] flex items-center justify-center"
               >
-                <span className="text-lg font-medium">{isOpen ? "✕" : "☰"}</span>
+                <span className="text-lg font-medium">
+                  {isOpen ? "✕" : "☰"}
+                </span>
               </Button>
             </div>
           </div>
@@ -266,15 +290,25 @@ export default function Portfolio() {
                 animate="visible"
                 exit="hidden"
               >
-                {["home", "projects", "internship", "skills", "certificates", "education", "contact"].map((item) => (
+                {[
+                  "home",
+                  "projects",
+                  "internship",
+                  "skills",
+                  "certificates",
+                  "education",
+                  "contact",
+                ].map((item) => (
                   <motion.button
                     key={item}
                     onClick={() => {
-                      scrollToSection(item)
-                      setIsOpen(false)
+                      scrollToSection(item);
+                      setIsOpen(false);
                     }}
                     className={`capitalize text-left hover:text-orange-600 dark:hover:text-orange-400 transition-colors py-3 text-lg font-medium ${
-                      activeSection === item ? "text-orange-600 dark:text-orange-400" : ""
+                      activeSection === item
+                        ? "text-orange-600 dark:text-orange-400"
+                        : ""
                     }`}
                     variants={mobileMenuItemVariants}
                   >
@@ -309,7 +343,10 @@ export default function Portfolio() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section id="home" className="pt-24 pb-16 min-h-screen flex items-center relative overflow-hidden">
+      <section
+        id="home"
+        className="pt-24 pb-16 min-h-screen flex items-center relative overflow-hidden"
+      >
         {/* Background Animation */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
@@ -342,15 +379,15 @@ export default function Portfolio() {
                 </span>
               </motion.h1>
 
-             
-
               <motion.p
                 variants={itemVariants}
                 className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-lg mx-auto lg:mx-0 leading-relaxed"
               >
-                Final-year B.Tech (ICT) student with hands-on experience in building scalable full-stack web
-                applications. Strong in the JavaScript ecosystem, REST APIs, and authentication systems. Seeking
-                Frontend, Backend, or Full-Stack Developer roles (Internship / Full-Time).
+                Final-year B.Tech (ICT) student with hands-on experience in
+                building scalable full-stack web applications. Strong in the
+                JavaScript ecosystem, REST APIs, and authentication systems.
+                Seeking Frontend, Backend, or Full-Stack Developer roles
+                (Internship / Full-Time).
               </motion.p>
 
               <motion.div
@@ -396,41 +433,36 @@ export default function Portfolio() {
               </motion.div>
             </motion.div>
 
-          
-{/* Image */}
-<motion.div
-  className="flex justify-center order-1 lg:order-2"
-  variants={imageVariants}
-  initial="hidden"
-  animate="visible"
->
-  <div className="relative group">
-    
-    {/* Orange Ring */}
-    <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 
+            {/* Image */}
+            <motion.div
+              className="flex justify-center order-1 lg:order-2"
+              variants={imageVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <div className="relative group">
+                {/* Orange Ring */}
+                <div
+                  className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 
                     rounded-full 
                     bg-gradient-to-r from-orange-400 via-orange-300 to-orange-400 
-                    p-[6px] overflow-hidden">
-
-      {/* Image Wrapper */}
-      <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
-        <Image
-          src="/me__.jpeg"
-          alt="Uday Nandaniya"
-          fill
-          priority
-          className="object-cover object-center 
+                    p-[6px] overflow-hidden"
+                >
+                  {/* Image Wrapper */}
+                  <div className="relative w-full h-full rounded-full overflow-hidden bg-white">
+                    <Image
+                      src="/me__.jpeg"
+                      alt="Uday Nandaniya"
+                      fill
+                      priority
+                      className="object-cover object-center 
                      transition-transform duration-300 
                      group-hover:scale-105"
-        />
-      </div>
-    </div>
-
-  
-
-  </div>
-</motion.div>
-
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -446,44 +478,65 @@ export default function Portfolio() {
               Featured Projects
             </h2>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
-              Explore my latest work showcasing full-stack development, modern UI/UX, and innovative solutions
+              Explore my latest work showcasing full-stack development, modern
+              UI/UX, and innovative solutions
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            {/* Rural Reach Healthcare Platform */}
-            {/* <motion.div     
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+            <motion.div
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5 }}
             >
+              {/* Image Hero */}
               <div
-                className="h-32 sm:h-48 bg-gradient-to-br from-green-400 via-blue-500 to-teal-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
-                onClick={() => window.open("https://rural-reach-one.vercel.app/", "_blank")}
+                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+                onClick={() =>
+                  window.open("https://rural-reach-one.vercel.app/", "_blank")
+                }
               >
-                <div className="text-white text-center z-10">
-                  <div className="text-4xl sm:text-5xl mb-3">🏥</div>
-                  <div className="text-lg sm:text-xl font-bold mb-1">Rural Reach</div>
-                  <div className="text-sm opacity-90">Healthcare Platform</div>
-                </div>
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 right-4 text-white">
-                    <ExternalLink size={20} />
-                  </div>
+                <Image
+                  src="/Project_Image/Health_Care.png"
+                  alt="Rural Reach Healthcare Platform"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+                  priority
+                />
+
+                {/* Overlay – subtle on mobile, hover on desktop */}
+                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+                {/* External link icon – always visible on mobile */}
+                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                  <ExternalLink size={18} />
                 </div>
               </div>
+
+              {/* Content */}
               <div className="p-4 sm:p-6">
                 <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
                   Rural Reach Healthcare Platform
                 </h3>
+
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  A comprehensive healthcare platform connecting rural communities with medical services, featuring
-                  emergency alerts, health tips, and hospital management.
+                  A comprehensive healthcare platform connecting rural
+                  communities with medical services, featuring emergency alerts,
+                  health tips, and hospital management.
                 </p>
+
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["React", "Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"].map((tech) => (
+                  {[
+                    "React",
+                    "Next.js",
+                    "TypeScript",
+                    "MongoDB",
+                    "JWT",
+                    "Tailwind CSS",
+                  ].map((tech) => (
                     <span
                       key={tech}
                       className="px-2 sm:px-3 py-1 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 text-green-700 dark:text-green-300 text-xs rounded-full font-medium"
@@ -492,6 +545,7 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
+
                 <div className="flex flex-wrap gap-3 text-sm">
                   <a
                     href="https://rural-reach-one.vercel.app/"
@@ -502,6 +556,7 @@ export default function Portfolio() {
                     <ExternalLink size={14} />
                     Live Demo
                   </a>
+
                   <a
                     href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform-Readme.md"
                     target="_blank"
@@ -513,119 +568,58 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div> */}
-
-
-<motion.div
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5 }}
->
-  {/* Image Hero */}
-  <div
-    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
-    onClick={() => window.open("https://rural-reach-one.vercel.app/", "_blank")}
-  >
-    <Image
-      src="/Project_Image/Health_Care.png"
-      alt="Rural Reach Healthcare Platform"
-      fill
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
-      priority
-    />
-
-    {/* Overlay – subtle on mobile, hover on desktop */}
-    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
-
-    {/* External link icon – always visible on mobile */}
-    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-      <ExternalLink size={18} />
-    </div>
-  </div>
-
-  {/* Content */}
-  <div className="p-4 sm:p-6">
-    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-      Rural Reach Healthcare Platform
-    </h3>
-
-    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-      A comprehensive healthcare platform connecting rural communities with medical services,
-      featuring emergency alerts, health tips, and hospital management.
-    </p>
-
-    <div className="flex flex-wrap gap-2 mb-4">
-      {["React", "Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"].map((tech) => (
-        <span
-          key={tech}
-          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 text-green-700 dark:text-green-300 text-xs rounded-full font-medium"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
-
-    <div className="flex flex-wrap gap-3 text-sm">
-      <a
-        href="https://rural-reach-one.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <ExternalLink size={14} />
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform-Readme.md"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <Code size={14} />
-        GitHub
-      </a>
-    </div>
-  </div>
-</motion.div>
-
-
-
+            </motion.div>
 
             {/* Baby Shop E-commerce */}
-            {/* <motion.div
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+            <motion.div
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <div
-                className="h-32 sm:h-48 bg-gradient-to-br from-pink-400 via-purple-500 to-fuchsia-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
-                onClick={() => window.open("https://mahadev-baby-shop.vercel.app/", "_blank")}
+                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+                onClick={() =>
+                  window.open("https://mahadev-baby-shop.vercel.app/", "_blank")
+                }
               >
-                <div className="text-white text-center z-10">
-                  <div className="text-4xl sm:text-5xl mb-3">👶</div>
-                  <div className="text-lg sm:text-xl font-bold mb-1">Baby Shop</div>
-                  <div className="text-sm opacity-90">E-commerce Platform</div>
-                </div>
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 right-4 text-white">
-                    <ExternalLink size={20} />
-                  </div>
+                <Image
+                  src="/Project_Image/Ecommerce.png"
+                  alt="Mahadev Baby Shop E-commerce Platform"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+                  priority
+                />
+
+                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                  <ExternalLink size={18} />
                 </div>
               </div>
+
               <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">Baby Shop</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                  Mahadev Baby Shop
+                </h3>
+
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  Premium baby products e-commerce platform featuring comprehensive product catalog, secure shopping
-                  cart, user authentication, and admin dashboard.
+                  Premium baby products e-commerce platform featuring a
+                  comprehensive product catalog, secure shopping cart, user
+                  authentication, and a full admin dashboard.
                 </p>
+
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["Next.js", "TypeScript", "MongoDB", "JWT", "Cloudinary", "Tailwind CSS"].map((tech) => (
+                  {[
+                    "Next.js",
+                    "TypeScript",
+                    "MongoDB",
+                    "JWT",
+                    "Cloudinary",
+                    "Tailwind CSS",
+                  ].map((tech) => (
                     <span
                       key={tech}
                       className="px-2 sm:px-3 py-1 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/30 dark:to-purple-900/30 text-pink-700 dark:text-pink-300 text-xs rounded-full font-medium"
@@ -634,6 +628,7 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
+
                 <div className="flex flex-wrap gap-3 text-sm">
                   <a
                     href="https://mahadev-baby-shop.vercel.app/"
@@ -644,6 +639,7 @@ export default function Portfolio() {
                     <ExternalLink size={14} />
                     Live Demo
                   </a>
+
                   <a
                     href="https://github.com/udaynandaniya/baby_shop_readme.md"
                     target="_blank"
@@ -655,113 +651,56 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div> */}
+            </motion.div>
 
-            {/* Baby Shop E-commerce */}
-<motion.div
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.1 }}
->
-  <div
-    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
-    onClick={() => window.open("https://mahadev-baby-shop.vercel.app/", "_blank")}
-  >
-    <Image
-      src="/Project_Image/Ecommerce.png"
-      alt="Mahadev Baby Shop E-commerce Platform"
-      fill
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
-      priority
-    />
-
-    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
-
-    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-      <ExternalLink size={18} />
-    </div>
-  </div>
-
-  <div className="p-4 sm:p-6">
-    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-      Mahadev Baby Shop
-    </h3>
-
-    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-      Premium baby products e-commerce platform featuring a comprehensive product catalog,
-      secure shopping cart, user authentication, and a full admin dashboard.
-    </p>
-
-    <div className="flex flex-wrap gap-2 mb-4">
-      {["Next.js", "TypeScript", "MongoDB", "JWT", "Cloudinary", "Tailwind CSS"].map((tech) => (
-        <span
-          key={tech}
-          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/30 dark:to-purple-900/30 text-pink-700 dark:text-pink-300 text-xs rounded-full font-medium"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
-
-    <div className="flex flex-wrap gap-3 text-sm">
-      <a
-        href="https://mahadev-baby-shop.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <ExternalLink size={14} />
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/udaynandaniya/baby_shop_readme.md"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <Code size={14} />
-        GitHub
-      </a>
-    </div>
-  </div>
-</motion.div>
-
-
-            {/* NavneetHub */}
-            {/* <motion.div
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+            <motion.div
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <div
-                className="h-32 sm:h-48 bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
-                onClick={() => window.open("https://navneethub.vercel.app/", "_blank")}
+                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+                onClick={() =>
+                  window.open("https://navneethub.vercel.app/", "_blank")
+                }
               >
-                <div className="text-white text-center z-10">
-                  <div className="text-4xl sm:text-5xl mb-3">📚</div>
-                  <div className="text-lg sm:text-xl font-bold mb-1">NavneetHub</div>
-                  <div className="text-sm opacity-90">Book Trading Platform</div>
-                </div>
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 right-4 text-white">
-                    <ExternalLink size={20} />
-                  </div>
+                <Image
+                  src="/Project_Image/Book_selling.png"
+                  alt="NavneetHub Book Trading Platform"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+                  priority
+                />
+
+                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                  <ExternalLink size={18} />
                 </div>
               </div>
+
               <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">NavneetHub</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                  NavneetHub
+                </h3>
+
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  A specialized platform connecting students for buying & selling used Navneet books with mobile
-                  verification, session management, and automated cleanup.
+                  A specialized platform connecting students for buying and
+                  selling used Navneet books with mobile verification, secure
+                  session management, and automated cleanup.
                 </p>
+
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["Next.js", "TypeScript", "MongoDB", "Zod", "Tailwind CSS"].map((tech) => (
+                  {[
+                    "Next.js",
+                    "TypeScript",
+                    "MongoDB",
+                    "Zod",
+                    "Tailwind CSS",
+                  ].map((tech) => (
                     <span
                       key={tech}
                       className="px-2 sm:px-3 py-1 bg-gradient-to-r from-blue-100 to-green-100 dark:from-blue-900/30 dark:to-green-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full font-medium"
@@ -770,6 +709,7 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
+
                 <div className="flex flex-wrap gap-3 text-sm">
                   <a
                     href="https://navneethub.vercel.app/"
@@ -780,6 +720,7 @@ export default function Portfolio() {
                     <ExternalLink size={14} />
                     Live Demo
                   </a>
+
                   <a
                     href="https://github.com/udaynandaniya/Navneethub_"
                     target="_blank"
@@ -791,122 +732,61 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div> */}
+            </motion.div>
 
-<motion.div
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.2 }}
->
-  <div
-    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
-    onClick={() => window.open("https://navneethub.vercel.app/", "_blank")}
-  >
-    <Image
-      src="/Project_Image/Book_selling.png"
-      alt="NavneetHub Book Trading Platform"
-      fill
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
-      priority
-    />
-
-    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
-
-    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-      <ExternalLink size={18} />
-    </div>
-  </div>
-
-  <div className="p-4 sm:p-6">
-    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-      NavneetHub
-    </h3>
-
-    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-      A specialized platform connecting students for buying and selling used Navneet books with mobile verification,
-      secure session management, and automated cleanup.
-    </p>
-
-    <div className="flex flex-wrap gap-2 mb-4">
-      {["Next.js", "TypeScript", "MongoDB", "Zod", "Tailwind CSS"].map((tech) => (
-        <span
-          key={tech}
-          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-blue-100 to-green-100 dark:from-blue-900/30 dark:to-green-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full font-medium"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
-
-    <div className="flex flex-wrap gap-3 text-sm">
-      <a
-        href="https://navneethub.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <ExternalLink size={14} />
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/udaynandaniya/Navneethub_"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <Code size={14} />
-        GitHub
-      </a>
-    </div>
-  </div>
-</motion.div>
-
-
-
-
-            {/* Food Zone */}
-            {/* <motion.div
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+            <motion.div
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <div
-                className="h-32 sm:h-48 bg-gradient-to-br from-orange-400 via-red-500 to-pink-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
-                onClick={() => window.open("https://food-xi-indol.vercel.app/", "_blank")}
+                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+                onClick={() =>
+                  window.open("https://food-xi-indol.vercel.app/", "_blank")
+                }
               >
-                <div className="text-white text-center z-10">
-                  <div className="text-4xl sm:text-5xl mb-3">🍕</div>
-                  <div className="text-lg sm:text-xl font-bold mb-1">Food Zone</div>
-                  <div className="text-sm opacity-90">Food Ordering Platform</div>
-                </div>
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 right-4 text-white">
-                    <ExternalLink size={20} />
-                  </div>
+                <Image
+                  src="/Project_Image/Foodie.png"
+                  alt="Food Zone Food Ordering Platform"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+                  priority
+                />
+
+                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                  <ExternalLink size={18} />
                 </div>
               </div>
+
               <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">Food Zone</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                  Food Zone
+                </h3>
+
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  A responsive online food ordering platform with intuitive menu browsing, cart management, and seamless
-                  order confirmation process.
+                  A responsive online food ordering platform with intuitive menu
+                  browsing, cart management, and a seamless order confirmation
+                  experience.
                 </p>
+
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["HTML", "CSS", "JavaScript", "Responsive Design"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 sm:px-3 py-1 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 text-orange-700 dark:text-orange-300 text-xs rounded-full font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {["HTML", "CSS", "JavaScript", "Responsive Design"].map(
+                    (tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 sm:px-3 py-1 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 text-orange-700 dark:text-orange-300 text-xs rounded-full font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ),
+                  )}
                 </div>
+
                 <div className="flex flex-wrap gap-3 text-sm">
                   <a
                     href="https://food-xi-indol.vercel.app/"
@@ -917,6 +797,7 @@ export default function Portfolio() {
                     <ExternalLink size={14} />
                     Live Demo
                   </a>
+
                   <a
                     href="https://github.com/udaynandaniya/Food"
                     target="_blank"
@@ -928,123 +809,64 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div> */}
+            </motion.div>
 
-              <motion.div
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.3 }}
->
-  <div
-    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
-    onClick={() => window.open("https://food-xi-indol.vercel.app/", "_blank")}
-  >
-    <Image
-      src="/Project_Image/Foodie.png"
-      alt="Food Zone Food Ordering Platform"
-      fill
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
-      priority
-    />
-
-    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
-
-    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-      <ExternalLink size={18} />
-    </div>
-  </div>
-
-  <div className="p-4 sm:p-6">
-    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-      Food Zone
-    </h3>
-
-    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-      A responsive online food ordering platform with intuitive menu browsing,
-      cart management, and a seamless order confirmation experience.
-    </p>
-
-    <div className="flex flex-wrap gap-2 mb-4">
-      {["HTML", "CSS", "JavaScript", "Responsive Design"].map((tech) => (
-        <span
-          key={tech}
-          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 text-orange-700 dark:text-orange-300 text-xs rounded-full font-medium"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
-
-    <div className="flex flex-wrap gap-3 text-sm">
-      <a
-        href="https://food-xi-indol.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <ExternalLink size={14} />
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/udaynandaniya/Food"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <Code size={14} />
-        GitHub
-      </a>
-    </div>
-  </div>
-</motion.div>
-
-
-
-            {/* Product Selling Website */}
-            {/* <motion.div
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+            <motion.div
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <div
-                className="h-32 sm:h-48 bg-gradient-to-br from-purple-400 via-pink-500 to-rose-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
-                onClick={() => window.open("https://product-selling-app.vercel.app/", "_blank")}
+                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+                onClick={() =>
+                  window.open(
+                    "https://product-selling-app.vercel.app/",
+                    "_blank",
+                  )
+                }
               >
-                <div className="text-white text-center z-10">
-                  <div className="text-4xl sm:text-5xl mb-3">🛍️</div>
-                  <div className="text-lg sm:text-xl font-bold mb-1">Product Store</div>
-                  <div className="text-sm opacity-90">E-commerce Platform</div>
-                </div>
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 right-4 text-white">
-                    <ExternalLink size={20} />
-                  </div>
+                <Image
+                  src="/Project_Image/Product_selling.png"
+                  alt="Product Selling Website"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+                  priority
+                />
+
+                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                  <ExternalLink size={18} />
                 </div>
               </div>
+
               <div className="p-4 sm:p-6">
                 <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
                   Product Selling Website
                 </h3>
+
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  A modern e-commerce platform with interactive product showcase, responsive design, and optimized user
-                  experience for online shopping.
+                  A modern e-commerce platform with interactive product
+                  showcase, responsive design, and an optimized user experience
+                  for online shopping.
                 </p>
+
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["HTML", "CSS", "JavaScript", "Responsive Design"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 text-xs rounded-full font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {["HTML", "CSS", "JavaScript", "Responsive Design"].map(
+                    (tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 text-xs rounded-full font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ),
+                  )}
                 </div>
+
                 <div className="flex flex-wrap gap-3 text-sm">
                   <a
                     href="https://product-selling-app.vercel.app/"
@@ -1055,6 +877,7 @@ export default function Portfolio() {
                     <ExternalLink size={14} />
                     Live Demo
                   </a>
+
                   <a
                     href="https://github.com/udaynandaniya/Product_selling_app"
                     target="_blank"
@@ -1066,114 +889,60 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div> */}
+            </motion.div>
 
             <motion.div
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.4 }}
->
-  <div
-    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
-    onClick={() => window.open("https://product-selling-app.vercel.app/", "_blank")}
-  >
-    <Image
-      src="/Project_Image/Product_selling.png"
-      alt="Product Selling Website"
-      fill
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
-      priority
-    />
-
-    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
-
-    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-      <ExternalLink size={18} />
-    </div>
-  </div>
-
-  <div className="p-4 sm:p-6">
-    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-      Product Selling Website
-    </h3>
-
-    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-      A modern e-commerce platform with interactive product showcase, responsive design,
-      and an optimized user experience for online shopping.
-    </p>
-
-    <div className="flex flex-wrap gap-2 mb-4">
-      {["HTML", "CSS", "JavaScript", "Responsive Design"].map((tech) => (
-        <span
-          key={tech}
-          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 text-xs rounded-full font-medium"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
-
-    <div className="flex flex-wrap gap-3 text-sm">
-      <a
-        href="https://product-selling-app.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <ExternalLink size={14} />
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/udaynandaniya/Product_selling_app"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <Code size={14} />
-        GitHub
-      </a>
-    </div>
-  </div>
-</motion.div>
-
-
-            {/* University Data Portal */}
-            {/* <motion.div
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <div
-                className="h-32 sm:h-48 bg-gradient-to-br from-indigo-400 via-blue-500 to-cyan-600 flex items-center justify-center cursor-pointer relative overflow-hidden group"
-                onClick={() => window.open("https://university-data-portal.vercel.app/", "_blank")}
+                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+                onClick={() =>
+                  window.open(
+                    "https://university-data-portal.vercel.app/",
+                    "_blank",
+                  )
+                }
               >
-                <div className="text-white text-center z-10">
-                  <div className="text-4xl sm:text-5xl mb-3">🎓</div>
-                  <div className="text-lg sm:text-xl font-bold mb-1">University Portal</div>
-                  <div className="text-sm opacity-90">Data Management System</div>
-                </div>
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 right-4 text-white">
-                    <ExternalLink size={20} />
-                  </div>
+                <Image
+                  src="/Project_Image/university_data_portal.png"
+                  alt="University Data Portal"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+                  priority
+                />
+
+                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                  <ExternalLink size={18} />
                 </div>
               </div>
+
               <div className="p-4 sm:p-6">
                 <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
                   University Data Portal
                 </h3>
+
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  A comprehensive role-based dashboard system for university data management across Admin, Faculty,
-                  Students, and Alumni with secure authentication.
+                  A comprehensive role-based dashboard system for university
+                  data management across Admin, Faculty, Students, and Alumni
+                  with secure authentication.
                 </p>
+
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"].map((tech) => (
+                  {[
+                    "React.js",
+                    "Node.js",
+                    "Express.js",
+                    "MongoDB",
+                    "JWT",
+                    "Tailwind CSS",
+                  ].map((tech) => (
                     <span
                       key={tech}
                       className="px-2 sm:px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded-full font-medium"
@@ -1182,6 +951,7 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
+
                 <div className="flex flex-wrap gap-3 text-sm">
                   <a
                     href="https://university-data-portal.vercel.app/"
@@ -1192,6 +962,7 @@ export default function Portfolio() {
                     <ExternalLink size={14} />
                     Live Demo
                   </a>
+
                   <a
                     href="https://github.com/udaynandaniya/University_data_portal_readme.md"
                     target="_blank"
@@ -1203,86 +974,15 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div> */}
-
-            <motion.div
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.5 }}
->
-  <div
-    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
-    onClick={() => window.open("https://university-data-portal.vercel.app/", "_blank")}
-  >
-    <Image
-      src="/Project_Image/university_data_portal.png"
-      alt="University Data Portal"
-      fill
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
-      priority
-    />
-
-    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
-
-    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-      <ExternalLink size={18} />
-    </div>
-  </div>
-
-  <div className="p-4 sm:p-6">
-    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-      University Data Portal
-    </h3>
-
-    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-      A comprehensive role-based dashboard system for university data management across Admin,
-      Faculty, Students, and Alumni with secure authentication.
-    </p>
-
-    <div className="flex flex-wrap gap-2 mb-4">
-      {["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"].map((tech) => (
-        <span
-          key={tech}
-          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded-full font-medium"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
-
-    <div className="flex flex-wrap gap-3 text-sm">
-      <a
-        href="https://university-data-portal.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <ExternalLink size={14} />
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/udaynandaniya/University_data_portal_readme.md"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <Code size={14} />
-        GitHub
-      </a>
-    </div>
-  </div>
-</motion.div>
-
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Internship Section - Changed from Experience */}
-      <section id="internship" className="py-16 sm:py-20 bg-white dark:bg-gray-900">
+      <section
+        id="internship"
+        className="py-16 sm:py-20 bg-white dark:bg-gray-900"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
@@ -1295,320 +995,177 @@ export default function Portfolio() {
 
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
-             
+              <motion.div
+                className="relative pl-6 sm:pl-8 pb-10 border-l-4 border-orange-500"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs">💼</span>
+                </div>
 
-              {/* <motion.div
-  className="relative pl-6 sm:pl-8 pb-8 border-l-4 border-orange-500"
-  initial={{ opacity: 0, x: -50 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.1 }}
->
-  <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full flex items-center justify-center">
-    <span className="text-white text-xs">💼</span>
-  </div>
+                <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                    <div
+                      className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
+                      onClick={() =>
+                        window.open(
+                          "https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing",
+                          "_blank",
+                        )
+                      }
+                    >
+                      <Image
+                        src="/internship/ShadowFox.jpeg"
+                        alt="ShadowFox Internship Certificate"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
+                    </div>
 
-  <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-      
-      <div>
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-          Software developer intern
-        </h3>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+                        Software Developer Intern
+                      </h3>
 
-        <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
-          ShadowFox
-        </p>
+                      <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
+                        ShadowFox
+                      </p>
 
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
-          One-month Virtual Internship • July 1 – July 31, 2025
-        </p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                        One-month Virtual Internship • July 1 – July 31, 2025
+                      </p>
 
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-          Coordinator: Mr. Aakash Sir
-        </p>
+                      <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
+                        <li>
+                          • Built a responsive portfolio using React and
+                          Tailwind CSS
+                        </li>
+                        <li>
+                          • Developed a full-scale e-commerce platform using
+                          Next.js, TypeScript, and MongoDB
+                        </li>
+                        <li>
+                          • Implemented JWT authentication with email OTP
+                          verification
+                        </li>
+                        <li>
+                          • Integrated Cloudinary and Stripe for media and
+                          payments
+                        </li>
+                        <li>
+                          • Built admin dashboards for products, orders, and
+                          analytics
+                        </li>
+                      </ul>
 
-        <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
-          <li>• Built a fully responsive personal portfolio using React and Tailwind CSS</li>
-          <li>• Developed a production-ready e-commerce platform using Next.js, TypeScript, and MongoDB</li>
-          <li>• Implemented JWT authentication with email OTP verification</li>
-          <li>• Integrated Cloudinary for media management and Stripe for payments</li>
-          <li>• Built an admin dashboard for product, order, and analytics management</li>
-          <li>• Earned Certificate of Completion for strong performance</li>
-        </ul>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <a
+                          href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
+                        >
+                          <ExternalLink size={14} />
+                          View Certificate
+                        </a>
 
-        <div className="flex flex-wrap gap-4 text-sm">
-          <a
-            href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium"
-          >
-            <ExternalLink size={14} />
-            View Certificate
-          </a>
+                        <a
+                          href="https://mahadev-baby-shop.vercel.app/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
+                        >
+                          <ExternalLink size={14} />
+                          Live Project
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
 
-          <a
-            href="https://mahadev-baby-shop.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium"
-          >
-            <ExternalLink size={14} />
-            Live Project
-          </a>
-        </div>
-      </div>
+              <motion.div
+                className="relative pl-6 sm:pl-8 pb-10 border-l-4 border-orange-400"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-400 to-orange-300 rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs">💻</span>
+                </div>
 
-      <div
-        className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
-        onClick={() =>
-          window.open(
-            "https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing",
-            "_blank"
-          )
-        }
-      >
-        <Image
-          src="/internship/ShadowFox.jpeg"
-          alt="ShadowFox Internship Certificate"
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover transition-transform duration-500 hover:scale-105"
-          priority
-        />
+                <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                    <div
+                      className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
+                      onClick={() =>
+                        window.open(
+                          "https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing",
+                          "_blank",
+                        )
+                      }
+                    >
+                      <Image
+                        src="/internship/Skillcraft.jpg"
+                        alt="Skillcraft Internship Certificate"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
+                    </div>
 
-        <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
-      </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+                        Web Development Intern
+                      </h3>
 
-    </div>
-  </div>
-</motion.div>
+                      <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
+                        Skillcraft Technology
+                      </p>
 
-           
+                      <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                        One-month Virtual Internship • June 1 – June 30, 2025
+                      </p>
 
-<motion.div
-  className="relative pl-6 sm:pl-8 pb-8 border-l-4 border-orange-400"
-  initial={{ opacity: 0, x: -50 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.2 }}
->
-  <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-400 to-orange-300 rounded-full flex items-center justify-center">
-    <span className="text-white text-xs">💻</span>
-  </div>
+                      <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
+                        <li>
+                          • Worked on modern web technologies and UI development
+                        </li>
+                        <li>
+                          • Built responsive apps using Next.js, TypeScript, and
+                          Tailwind CSS
+                        </li>
+                        <li>
+                          • Learned full-stack concepts and API integration
+                        </li>
+                        <li>
+                          • Earned Certificate of Completion and Letter of
+                          Recommendation
+                        </li>
+                      </ul>
 
-  <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-      <div>
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-          Web Development Intern
-        </h3>
-
-        <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
-          Skillcraft Technology
-        </p>
-
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-          One-month Virtual Internship • June 1 – June 30, 2025
-        </p>
-
-        <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
-          <li>• Completed a hands-on virtual internship focused on modern web technologies</li>
-          <li>• Built responsive applications using Next.js, TypeScript, and Tailwind CSS</li>
-          <li>• Gained practical exposure to full-stack development and API integration</li>
-          <li>• Earned Certificate of Completion and Letter of Recommendation for performance</li>
-        </ul>
-
-        <a
-          href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium text-sm"
-        >
-          <ExternalLink size={14} />
-          View Certificate
-        </a>
-      </div>
-
-      <div
-        className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
-        onClick={() =>
-          window.open(
-            "https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing",
-            "_blank"
-          )
-        }
-      >
-        <Image
-          src="/internship/Skillcraft.jpg"
-          alt="Skillcraft Technology Internship Certificate"
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover transition-transform duration-500 hover:scale-105"
-          priority
-        />
-
-        <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
-      </div>
-    </div>
-  </div>
-</motion.div> */}
-
-<motion.div
-  className="relative pl-6 sm:pl-8 pb-10 border-l-4 border-orange-500"
-  initial={{ opacity: 0, x: -50 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.1 }}
->
-  <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full flex items-center justify-center">
-    <span className="text-white text-xs">💼</span>
-  </div>
-
-  <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-
-      <div
-        className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
-        onClick={() =>
-          window.open(
-            "https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing",
-            "_blank"
-          )
-        }
-      >
-        <Image
-          src="/internship/ShadowFox.jpeg"
-          alt="ShadowFox Internship Certificate"
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover transition-transform duration-500 hover:scale-105"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
-      </div>
-
-      <div>
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-          Software Developer Intern
-        </h3>
-
-        <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
-          ShadowFox
-        </p>
-
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-          One-month Virtual Internship • July 1 – July 31, 2025
-        </p>
-
-        <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
-          <li>• Built a responsive portfolio using React and Tailwind CSS</li>
-          <li>• Developed a full-scale e-commerce platform using Next.js, TypeScript, and MongoDB</li>
-          <li>• Implemented JWT authentication with email OTP verification</li>
-          <li>• Integrated Cloudinary and Stripe for media and payments</li>
-          <li>• Built admin dashboards for products, orders, and analytics</li>
-        </ul>
-
-        <div className="flex flex-wrap gap-4 text-sm">
-          <a
-            href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
-          >
-            <ExternalLink size={14} />
-            View Certificate
-          </a>
-
-          <a
-            href="https://mahadev-baby-shop.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
-          >
-            <ExternalLink size={14} />
-            Live Project
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</motion.div>
-
-
-<motion.div
-  className="relative pl-6 sm:pl-8 pb-10 border-l-4 border-orange-400"
-  initial={{ opacity: 0, x: -50 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.2 }}
->
-  <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-400 to-orange-300 rounded-full flex items-center justify-center">
-    <span className="text-white text-xs">💻</span>
-  </div>
-
-  <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-
-      <div
-        className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
-        onClick={() =>
-          window.open(
-            "https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing",
-            "_blank"
-          )
-        }
-      >
-        <Image
-          src="/internship/Skillcraft.jpg"
-          alt="Skillcraft Internship Certificate"
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover transition-transform duration-500 hover:scale-105"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
-      </div>
-
-      <div>
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-          Web Development Intern
-        </h3>
-
-        <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
-          Skillcraft Technology
-        </p>
-
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-          One-month Virtual Internship • June 1 – June 30, 2025
-        </p>
-
-        <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
-          <li>• Worked on modern web technologies and UI development</li>
-          <li>• Built responsive apps using Next.js, TypeScript, and Tailwind CSS</li>
-          <li>• Learned full-stack concepts and API integration</li>
-          <li>• Earned Certificate of Completion and Letter of Recommendation</li>
-        </ul>
-
-        <a
-          href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium text-sm"
-        >
-          <ExternalLink size={14} />
-          View Certificate
-        </a>
-      </div>
-
-    </div>
-  </div>
-</motion.div>
-
-
-              
+                      <a
+                        href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium text-sm"
+                      >
+                        <ExternalLink size={14} />
+                        View Certificate
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -1639,11 +1196,16 @@ export default function Portfolio() {
             >
               <div className="flex items-center mb-4">
                 <Cpu className="text-orange-600 mr-3" size={24} />
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Languages</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Languages
+                </h3>
               </div>
               <div className="space-y-3">
                 {["C", "C++", "JavaScript", "TypeScript"].map((skill) => (
-                  <div key={skill} className="flex items-center space-x-3 group">
+                  <div
+                    key={skill}
+                    className="flex items-center space-x-3 group"
+                  >
                     <div className="w-2 h-2 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full group-hover:scale-125 transition-transform"></div>
                     <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
                       {skill}
@@ -1662,17 +1224,24 @@ export default function Portfolio() {
             >
               <div className="flex items-center mb-4">
                 <Code className="text-orange-500 mr-3" size={24} />
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Frontend</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Frontend
+                </h3>
               </div>
               <div className="space-y-3">
-                {["HTML", "CSS", "React.js", "Next.js", "Tailwind CSS"].map((skill) => (
-                  <div key={skill} className="flex items-center space-x-3 group">
-                    <div className="w-2 h-2 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full group-hover:scale-125 transition-transform"></div>
-                    <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
-                      {skill}
-                    </span>
-                  </div>
-                ))}
+                {["HTML", "CSS", "React.js", "Next.js", "Tailwind CSS"].map(
+                  (skill) => (
+                    <div
+                      key={skill}
+                      className="flex items-center space-x-3 group"
+                    >
+                      <div className="w-2 h-2 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full group-hover:scale-125 transition-transform"></div>
+                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
+                        {skill}
+                      </span>
+                    </div>
+                  ),
+                )}
               </div>
             </motion.div>
 
@@ -1685,11 +1254,16 @@ export default function Portfolio() {
             >
               <div className="flex items-center mb-4">
                 <Database className="text-orange-600 mr-3" size={24} />
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Backend</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Backend
+                </h3>
               </div>
               <div className="space-y-3">
                 {["Node.js", "Express.js", "MongoDB", "JWT"].map((skill) => (
-                  <div key={skill} className="flex items-center space-x-3 group">
+                  <div
+                    key={skill}
+                    className="flex items-center space-x-3 group"
+                  >
                     <div className="w-2 h-2 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full group-hover:scale-125 transition-transform"></div>
                     <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
                       {skill}
@@ -1708,40 +1282,55 @@ export default function Portfolio() {
             >
               <div className="flex items-center mb-4">
                 <span className="text-orange-600 mr-3 text-2xl">🛠️</span>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Tools & Core</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Tools & Core
+                </h3>
               </div>
               <div className="space-y-3">
-                {["GitHub", "VS Code", "Cloudinary", "DBMS", "OOP", "Zod"].map((skill) => (
-                  <div key={skill} className="flex items-center space-x-3 group">
-                    <div className="w-2 h-2 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full group-hover:scale-125 transition-transform"></div>
-                    <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
-                      {skill}
-                    </span>
-                  </div>
-                ))}
+                {["GitHub", "VS Code", "Cloudinary", "DBMS", "OOP", "Zod"].map(
+                  (skill) => (
+                    <div
+                      key={skill}
+                      className="flex items-center space-x-3 group"
+                    >
+                      <div className="w-2 h-2 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full group-hover:scale-125 transition-transform"></div>
+                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
+                        {skill}
+                      </span>
+                    </div>
+                  ),
+                )}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Certificates Section - New Section */}
-      <section id="certificates" className="py-16 sm:py-20 bg-white dark:bg-gray-800">
+
+
+
+
+
+      {/* <section
+        id="certificates"
+        className="py-16 sm:py-20 bg-white dark:bg-gray-800"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
-              Certificates & Achievements
+             Achievements & Certificates
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">
-              Professional certifications and accomplishments
-            </p>
+           
           </div>
 
-          {/* Certifications Section */}
+  
+
           <div className="mb-16 sm:mb-20">
-            <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">Certifications</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+              Certifications
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-              {/* React.js Certificate */}
+             
               <motion.a
                 href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDq74ygim3dSKfT_bvcwyD-AZCFXcOqQTmmZOwn5jEo-Uk?e=PfU6Lj"
                 target="_blank"
@@ -1757,7 +1346,9 @@ export default function Portfolio() {
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                       React.js
                     </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">Simplilearn Skillup</p>
+                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                      Simplilearn Skillup
+                    </p>
                   </div>
                   <ExternalLink
                     size={20}
@@ -1765,12 +1356,11 @@ export default function Portfolio() {
                   />
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Professional certification in React.js development covering modern component patterns and best
-                  practices.
+                  Professional certification in React.js development covering
+                  modern component patterns and best practices.
                 </p>
               </motion.a>
 
-              {/* MERN Stack Certificate */}
               <motion.a
                 href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQAIK7_jFoTxQZG44Nz-MWTmATFy8U7Z1RC67cT7mFsuD3A?e=WIVR6T"
                 target="_blank"
@@ -1786,7 +1376,9 @@ export default function Portfolio() {
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                       MERN Stack
                     </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">Simplilearn Skillup</p>
+                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                      Simplilearn Skillup
+                    </p>
                   </div>
                   <ExternalLink
                     size={20}
@@ -1794,12 +1386,11 @@ export default function Portfolio() {
                   />
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Complete MERN stack certification covering MongoDB, Express.js, React, and Node.js for full-stack
-                  development.
+                  Complete MERN stack certification covering MongoDB,
+                  Express.js, React, and Node.js for full-stack development.
                 </p>
               </motion.a>
 
-              {/* Node.js Certificate */}
               <motion.a
                 href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQC29g5lxOS9R4PXNAgc2OylAW4BsH1QkKgPXFMdVHE4zKU?e=KOlN8h"
                 target="_blank"
@@ -1815,7 +1406,9 @@ export default function Portfolio() {
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                       Node.js
                     </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">Simplilearn Skillup</p>
+                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                      Simplilearn Skillup
+                    </p>
                   </div>
                   <ExternalLink
                     size={20}
@@ -1823,11 +1416,12 @@ export default function Portfolio() {
                   />
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Backend development certification focusing on Node.js runtime, Express framework, and API development.
+                  Backend development certification focusing on Node.js runtime,
+                  Express framework, and API development.
                 </p>
               </motion.a>
 
-              {/* Prompt Engineering Certificate */}
+              
               <motion.a
                 href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQD5SpbZz_7VT7epInQSxM-bAXB-gn4Ow2v4rwz-m4AEgGw?e=z3XtvE"
                 target="_blank"
@@ -1843,72 +1437,9 @@ export default function Portfolio() {
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                       Prompt Engineering
                     </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">IBM Skills Network</p>
-                  </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Professional training in prompt engineering techniques for AI and machine learning applications.
-                </p>
-              </motion.a>
-
-              {/* Online Coding Challenge */}
-              <motion.a
-                href="https://aii01-my.sharepoint.com/my?viewid=37ed23eb%2D3f28%2D483e%2D9f12%2Dd8d9cb30b84f&id=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume%2FDsa%5Fcoding%5Fcompetition%5FKnowy%2Ejpg&parent=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                      Online Coding Challenge
-                    </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">Coding Competition</p>
-                  </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Successfully completed online coding challenges demonstrating problem-solving and algorithmic skills.
-                </p>
-              </motion.a>
-            </div>
-          </div>
-
-          {/* Achievements Section */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">Achievements</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-              {/* Hack Orbit Finalist */}
-              <motion.a
-                href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBhxyjA1FqeS4PbnO61PxWNAbyNh7O79rAIIDTME0tMuVc?e=gr1jvA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                      Hack Orbit Finalist
-                    </h3>
                     <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
-                      MITS Gwalior • National-Level Hackathon
+                      IBM Skills Network
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">July 2025</p>
                   </div>
                   <ExternalLink
                     size={20}
@@ -1916,49 +1447,12 @@ export default function Portfolio() {
                   />
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Selected as a finalist in a prestigious national-level hackathon, showcasing innovative
-                  problem-solving skills and technical expertise in competitive programming.
+                  Professional training in prompt engineering techniques for AI
+                  and machine learning applications.
                 </p>
               </motion.a>
 
-              {/* Policython X QCI 2025 */}
-<motion.a
-  href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDtd9GuX5-CRbdEoPTsBpqJAQ3ihncC_SBueoGKaI7D0Rw?e=SimzEg"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.3 }}
->
-  <div className="flex items-start justify-between mb-4">
-    <div>
-      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-        Policython X QCI 2025 – Top 10 Team
-      </h3>
-      <p className="text-sm text-indigo-600 dark:text-indigo-400 font-semibold">
-        MDI Murshidabad • National Policy Competition
-      </p>
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-        Jan 2025 • Online
-      </p>
-    </div>
-    <ExternalLink
-      size={20}
-      className="text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform"
-    />
-  </div>
-
-  <p className="text-gray-600 dark:text-gray-400 text-sm">
-    Secured a <span className="font-semibold">Top 10 national rank</span> in a multi-stage policy competition,
-    selected from <span className="font-semibold">200+ teams</span>, demonstrating strong analytical reasoning,
-    structured problem-solving, and policy innovation.
-  </p>
-</motion.a>
-
-
-              {/* Hackspire 2025 */}
+              
               <motion.a
                 href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y?e=iPgxe6"
                 target="_blank"
@@ -1974,7 +1468,9 @@ export default function Portfolio() {
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
                       Hackspire 2025
                     </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">Adani University</p>
+                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                      Adani University
+                    </p>
                   </div>
                   <ExternalLink
                     size={20}
@@ -1982,57 +1478,460 @@ export default function Portfolio() {
                   />
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Participated in Hackspire 2025 hackathon organized by Adani University with innovative project
-                  solutions.
+                  Participated in Hackspire 2025 hackathon organized by Adani
+                  University with innovative project solutions.
                 </p>
               </motion.a>
 
+              <motion.a
+                href="https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8?e=TtKicW"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                      Odoo x Adani University Hackathon 2026 – Finalist
+                    </h3>
+                    <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold">
+                      Adani University • Industry–Academic Hackathon
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      Jan 2026 • Ahmedabad, India
+                    </p>
+                  </div>
+                  <ExternalLink
+                    size={20}
+                    className="text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform"
+                  />
+                </div>
 
-              {/* Odoo x Adani University Hackathon 2026 */}
-<motion.a
-  href="https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8?e=TtKicW"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5, delay: 0.4 }}
->
-  <div className="flex items-start justify-between mb-4">
-    <div>
-      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-        Odoo x Adani University Hackathon 2026 – Finalist
-      </h3>
-      <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold">
-        Adani University • Industry–Academic Hackathon
-      </p>
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-        Jan 2026 • Ahmedabad, India
-      </p>
-    </div>
-    <ExternalLink
-      size={20}
-      className="text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform"
-    />
-  </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Selected for the{" "}
+                  <span className="font-semibold">Final Round</span> of the Odoo
+                  x Adani University Hackathon 2026, demonstrating strong
+                  problem-solving ability, teamwork, and practical application
+                  of software development skills in an industry-driven hackathon
+                  environment.
+                </p>
+              </motion.a>
 
-  <p className="text-gray-600 dark:text-gray-400 text-sm">
-    Selected for the <span className="font-semibold">Final Round</span> of the Odoo x Adani University Hackathon 2026,
-    demonstrating strong problem-solving ability, teamwork, and practical application of software development skills
-    in an industry-driven hackathon environment.
-  </p>
-</motion.a>
-
-
+                  <motion.a
+                href="https://aii01-my.sharepoint.com/my?viewid=37ed23eb%2D3f28%2D483e%2D9f12%2Dd8d9cb30b84f&id=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume%2FDsa%5Fcoding%5Fcompetition%5FKnowy%2Ejpg&parent=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                      Online Coding Challenge
+                    </h3>
+                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
+                      Coding Competition
+                    </p>
+                  </div>
+                  <ExternalLink
+                    size={20}
+                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
+                  />
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Successfully completed online coding challenges demonstrating
+                  problem-solving and algorithmic skills.
+                </p>
+              </motion.a>
             </div>
           </div>
+
+          
         </div>
-      </section>
+      </section> */}
+
+
+
+
+
+
+
+{/* <section
+  id="certificates"
+  className="py-16 sm:py-20 bg-white dark:bg-gray-800"
+>
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12 sm:mb-16">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
+        Achievements & Certificates
+      </h2>
+    </div>
+
+    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+      Achievements
+    </h3>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
+      <motion.a
+        href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDtd9GuX5-CRbdEoPTsBpqJAQ3ihncC_SBueoGKaI7D0Rw"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
+      >
+        <div className="relative h-40">
+          <Image src="/certificates/Policython.png" alt="Policython" fill className="object-cover" />
+        </div>
+        <div className="p-5">
+          <h3 className="font-bold text-lg">Policython X QCI 2025</h3>
+          <p className="text-sm text-indigo-600 font-semibold">Top 10 Team • 200+ Teams</p>
+        </div>
+      </motion.a>
+
+      <motion.a
+        href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBhxyjA1FqeS4PbnO61PxWNAbyNh7O79rAIIDTME0tMuVc"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
+      >
+        <div className="relative h-40">
+          <Image src="/hackathone/hackorbit_final.png" alt="Hack Orbit" fill className="object-cover" />
+        </div>
+        <div className="p-5">
+          <h3 className="font-bold text-lg">Hack Orbit</h3>
+          <p className="text-sm text-orange-600 font-semibold">Finalist • 400+ Teams</p>
+        </div>
+      </motion.a>
+    </div>
+
+    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+      Certifications
+    </h3>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
+      {[
+        {
+          title: "React.js",
+          img: "/certificates/React_js.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDq74ygim3dSKfT_bvcwyD-AZCFXcOqQTmmZOwn5jEo-Uk",
+        },
+        {
+          title: "MERN Stack",
+          img: "/certificates/Mern_Stack.jpg",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQAIK7_jFoTxQZG44Nz-MWTmATFy8U7Z1RC67cT7mFsuD3A",
+        },
+        {
+          title: "Node.js",
+          img: "/certificates/Nodejs.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQC29g5lxOS9R4PXNAgc2OylAW4BsH1QkKgPXFMdVHE4zKU",
+        },
+        {
+          title: "Prompt Engineering",
+          img: "/certificates/Prompt_Engineer_Certificate.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQD5SpbZz_7VT7epInQSxM-bAXB-gn4Ow2v4rwz-m4AEgGw",
+        },
+        {
+          title: "Coding Challenge",
+          img: "/hackathone/Dsa_coding.jpg",
+          link: "https://aii01-my.sharepoint.com/my?viewid=37ed23eb-3f28-483e-9f12-d8d9cb30b84f",
+        },
+      ].map((item) => (
+        <motion.a
+          key={item.title}
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
+        >
+          <div className="relative h-40">
+            <Image src={item.img} alt={item.title} fill className="object-cover" />
+          </div>
+          <div className="p-5">
+            <h3 className="font-bold text-lg">{item.title}</h3>
+          </div>
+        </motion.a>
+      ))}
+    </div>
+
+    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+      Hackathons
+    </h3>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <motion.a
+        href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
+      >
+        <div className="relative h-40">
+          <Image src="/hackathone/Hackspire_AdaniUniversity.png" alt="Hackspire" fill className="object-cover" />
+        </div>
+        <div className="p-5">
+          <h3 className="font-bold text-lg">Hackspire 2025</h3>
+          <p className="text-sm text-orange-600 font-semibold">Adani University</p>
+        </div>
+      </motion.a>
+
+      <motion.a
+        href="https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
+      >
+        <div className="relative h-40">
+          <Image src="/hackathone/oddo.jpeg" alt="Odoo Hackathon" fill className="object-cover" />
+        </div>
+        <div className="p-5">
+          <h3 className="font-bold text-lg">Odoo x Adani University Hackathon</h3>
+          <p className="text-sm text-purple-600 font-semibold">Finalist • 2026</p>
+        </div>
+      </motion.a>
+    </div>
+  </div>
+</section> */}
+
+
+      <section
+  id="certificates"
+  className="py-16 sm:py-20 bg-white dark:bg-gray-800"
+>
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* ================= HEADER ================= */}
+    <div className="text-center mb-12 sm:mb-16">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
+        Achievements & Certificates
+      </h2>
+    </div>
+
+    {/* ================= ACHIEVEMENTS ================= */}
+    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+      Achievements
+    </h3>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
+      {[
+        {
+          title: "Policython X QCI 2025",
+          img: "/certificates/Policython.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDtd9GuX5-CRbdEoPTsBpqJAQ3ihncC_SBueoGKaI7D0Rw",
+          tag: "Top 10 Team • 200+ Teams",
+          desc:
+            "Selected among the Top 10 teams nationwide for Policython X QCI 2025, showcasing policy research, innovation, and teamwork.",
+          color: "text-indigo-600",
+        },
+        {
+          title: "Hack Orbit – Finalist",
+          img: "/hackathone/hackorbit_final.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBhxyjA1FqeS4PbnO61PxWNAbyNh7O79rAIIDTME0tMuVc",
+          tag: "Finalist • 400+ Teams",
+          desc:
+            "Finalist at Hack Orbit among 400+ teams, developing innovative tech solutions under competitive hackathon constraints.",
+          color: "text-orange-600",
+        },
+      ].map((item, i) => (
+        <motion.a
+          key={item.title}
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+          className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
+        >
+          <div className="relative h-40">
+            <Image src={item.img} alt={item.title} fill className="object-cover" />
+          </div>
+
+          <div className="p-5">
+            <div className="flex justify-between items-start mb-2">
+              <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
+                {item.title}
+              </h3>
+              <ExternalLink
+                size={18}
+                className="text-orange-600 group-hover:scale-110 transition-transform"
+              />
+            </div>
+            <p className={`text-sm font-semibold ${item.color} mb-2`}>
+              {item.tag}
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              {item.desc}
+            </p>
+          </div>
+        </motion.a>
+      ))}
+    </div>
+
+    {/* ================= CERTIFICATIONS ================= */}
+    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+      Certifications
+    </h3>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
+      {[
+        {
+          title: "React.js",
+          provider: "Simplilearn Skillup",
+          img: "/certificates/Reactjs.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDq74ygim3dSKfT_bvcwyD-AZCFXcOqQTmmZOwn5jEo-Uk",
+          desc:
+            "Professional certification in React.js covering modern component patterns, hooks, and best practices.",
+        },
+        {
+          title: "MERN Stack",
+          provider: "Simplilearn Skillup",
+          img: "/certificates/Mern_Stack.jpg",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQAIK7_jFoTxQZG44Nz-MWTmATFy8U7Z1RC67cT7mFsuD3A",
+          desc:
+            "Complete MERN stack training including MongoDB, Express, React, and Node.js for full-stack development.",
+        },
+        {
+          title: "Node.js",
+          provider: "Simplilearn Skillup",
+          img: "/certificates/Nodejs.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQC29g5lxOS9R4PXNAgc2OylAW4BsH1QkKgPXFMdVHE4zKU",
+          desc:
+            "Backend development certification focused on Node.js runtime, Express framework, and REST APIs.",
+        },
+        {
+          title: "Prompt Engineering",
+          provider: "IBM Skills Network",
+          img: "/certificates/Prompt_Engineer_Certificate.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQD5SpbZz_7VT7epInQSxM-bAXB-gn4Ow2v4rwz-m4AEgGw",
+          desc:
+            "Training in prompt engineering techniques for AI and LLM-based applications.",
+        },
+        {
+          title: "Online Coding Challenge",
+          provider: "Coding Competition",
+          img: "/hackathone/Dsa_coding.jpg",
+          link: "https://aii01-my.sharepoint.com/my?viewid=37ed23eb%2D3f28%2D483e%2D9f12%2Dd8d9cb30b84f&id=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume%2FDsa%5Fcoding%5Fcompetition%5FKnowy%2Ejpg&parent=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume",
+          desc:
+            "Successfully completed competitive coding challenges demonstrating algorithmic thinking and problem-solving skills.",
+        },
+      ].map((item, i) => (
+        <motion.a
+          key={item.title}
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+          className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
+        >
+          <div className="relative h-40">
+            <Image src={item.img} alt={item.title} fill className="object-cover" />
+          </div>
+
+          <div className="p-5">
+            <div className="flex justify-between items-start mb-2">
+              <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
+                {item.title}
+              </h3>
+              <ExternalLink
+                size={18}
+                className="text-orange-600 group-hover:scale-110 transition-transform"
+              />
+            </div>
+            <p className="text-sm font-semibold text-orange-600 mb-2">
+              {item.provider}
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              {item.desc}
+            </p>
+          </div>
+        </motion.a>
+      ))}
+    </div>
+
+    {/* ================= HACKATHONS ================= */}
+    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+      Hackathons
+    </h3>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {[
+        {
+          title: "Hackspire 2025",
+          img: "/hackathone/Hackspire_AdaniUniversity.png",
+          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y",
+          tag: "Adani University",
+        },
+        {
+          title: "Odoo x Adani University Hackathon 2026",
+          img: "/hackathone/oddo.jpeg",
+          link: "https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8",
+          tag: "Finalist • Industry–Academic Hackathon",
+        },
+      ].map((item, i) => (
+        <motion.a
+          key={item.title}
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+          className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
+        >
+          <div className="relative h-40">
+            <Image src={item.img} alt={item.title} fill className="object-cover" />
+          </div>
+
+          <div className="p-5">
+            <div className="flex justify-between items-start mb-2">
+              <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
+                {item.title}
+              </h3>
+              <ExternalLink
+                size={18}
+                className="text-orange-600 group-hover:scale-110 transition-transform"
+              />
+            </div>
+            <p className="text-sm font-semibold text-orange-600">
+              {item.tag}
+            </p>
+          </div>
+        </motion.a>
+      ))}
+    </div>
+  </div>
+</section>
 
       
 
-      {/* Education Section - Changed from About */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <section
         id="education"
         className="py-16 sm:py-20 bg-gradient-to-br from-orange-50 to-gray-50 dark:from-gray-800 dark:to-gray-900"
@@ -2057,24 +1956,34 @@ export default function Portfolio() {
             </h3>
             <div className="space-y-6">
               <div className="border-l-4 border-orange-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
-                <h4 className="font-bold text-base sm:text-lg text-gray-900 dark:text-white">Bachelor of Technology</h4>
+                <h4 className="font-bold text-base sm:text-lg text-gray-900 dark:text-white">
+                  Bachelor of Technology
+                </h4>
                 <p className="text-orange-600 dark:text-orange-400 font-semibold text-sm sm:text-base">
                   Information and Communication Technology
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Adani University • 2022-2026</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">CGPA: 7.78</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                  Adani University • 2022-2026
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  CGPA: 7.78
+                </p>
               </div>
               <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
                 <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
                   Higher Secondary Certificate
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Alpha Vidya Sankul • 67.23%</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                  Alpha Vidya Sankul • 67.23%
+                </p>
               </div>
               <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
                 <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
                   Secondary School Certificate
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">S.D.B High School • 76.66%</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                  S.D.B High School • 76.66%
+                </p>
               </div>
             </div>
           </motion.div>
@@ -2113,10 +2022,15 @@ export default function Portfolio() {
                   className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group"
                 >
                   <div className="p-3 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 rounded-full group-hover:scale-110 transition-transform flex-shrink-0">
-                    <Mail className="text-orange-600 dark:text-orange-400" size={20} />
+                    <Mail
+                      className="text-orange-600 dark:text-orange-400"
+                      size={20}
+                    />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Email</p>
+                    <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
+                      Email
+                    </p>
                     <p className="text-gray-600 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors break-words text-sm sm:text-base">
                       udaynandaniya5@gmail.com
                     </p>
@@ -2128,10 +2042,15 @@ export default function Portfolio() {
                   className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group"
                 >
                   <div className="p-3 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 rounded-full group-hover:scale-110 transition-transform flex-shrink-0">
-                    <Mail className="text-orange-600 dark:text-orange-400" size={20} />
+                    <Mail
+                      className="text-orange-600 dark:text-orange-400"
+                      size={20}
+                    />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Alternate Email</p>
+                    <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
+                      Alternate Email
+                    </p>
                     <p className="text-gray-600 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors break-words text-sm sm:text-base">
                       UDAYNANDANIYA.ict22@adaniuni.ac.in
                     </p>
@@ -2143,10 +2062,15 @@ export default function Portfolio() {
                   className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 group"
                 >
                   <div className="p-3 bg-gradient-to-r from-orange-200 to-orange-100 dark:from-orange-800/30 dark:to-orange-900/30 rounded-full group-hover:scale-110 transition-transform flex-shrink-0">
-                    <Phone className="text-orange-600 dark:text-orange-400" size={20} />
+                    <Phone
+                      className="text-orange-600 dark:text-orange-400"
+                      size={20}
+                    />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Phone</p>
+                    <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
+                      Phone
+                    </p>
                     <p className="text-gray-600 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
                       +91 9898336415
                     </p>
@@ -2155,11 +2079,18 @@ export default function Portfolio() {
 
                 <div className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
                   <div className="p-3 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 rounded-full flex-shrink-0">
-                    <MapPin className="text-orange-600 dark:text-orange-400" size={20} />
+                    <MapPin
+                      className="text-orange-600 dark:text-orange-400"
+                      size={20}
+                    />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">Location</p>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Ahmedabad, Gujarat, India</p>
+                    <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
+                      Location
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                      Ahmedabad, Gujarat, India
+                    </p>
                   </div>
                 </div>
               </div>
@@ -2199,11 +2130,13 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="py-6 sm:py-8 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">Thank you for visiting my portfolio!</p>
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+            Thank you for visiting my portfolio!
+          </p>
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
 // Framer Motion variants
@@ -2215,7 +2148,7 @@ const containerVariants = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -2228,7 +2161,7 @@ const itemVariants = {
       damping: 10,
     },
   },
-}
+};
 
 const imageVariants = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -2242,7 +2175,7 @@ const imageVariants = {
       delay: 0.5,
     },
   },
-}
+};
 
 const mobileMenuContainerVariants = {
   hidden: { x: "100%" },
@@ -2264,7 +2197,7 @@ const mobileMenuContainerVariants = {
       when: "afterChildren",
     },
   },
-}
+};
 
 const mobileMenuItemsListVariants = {
   visible: {
@@ -2279,12 +2212,12 @@ const mobileMenuItemsListVariants = {
       staggerDirection: -1,
     },
   },
-}
+};
 
 const mobileMenuItemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
-}
+};
 
 // ContactForm Component
 function ContactForm() {
@@ -2292,16 +2225,18 @@ function ContactForm() {
     name: "",
     email: "",
     message: "",
-  })
-  const [isLoading, setIsLoading] = useState(false)
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault()
@@ -2355,57 +2290,56 @@ function ContactForm() {
   // }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault()
-  setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "33400040-c76f-44b8-b5ed-5ffc375ec5c0",
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      }),
-    })
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "33400040-c76f-44b8-b5ed-5ffc375ec5c0",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-    const data = await response.json()
-    // console.log("Web3Forms:", data) // 👈 CHECK THIS
+      const data = await response.json();
+      // console.log("Web3Forms:", data) // 👈 CHECK THIS
 
-    if (data.success) {
-      Swal.fire({
-        title: "Success!",
-        text: "Your message has been sent successfully.",
-        icon: "success",
-        confirmButtonColor: "#ea580c",
-      })
+      if (data.success) {
+        Swal.fire({
+          title: "Success!",
+          text: "Your message has been sent successfully.",
+          icon: "success",
+          confirmButtonColor: "#ea580c",
+        });
 
-      setFormData({ name: "", email: "", message: "" })
-    } else {
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        Swal.fire({
+          title: "Error!",
+          text: data.message || "Submission failed.",
+          icon: "error",
+          confirmButtonColor: "#ea580c",
+        });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
       Swal.fire({
         title: "Error!",
-        text: data.message || "Submission failed.",
+        text: "Network error. Please try again later.",
         icon: "error",
         confirmButtonColor: "#ea580c",
-      })
+      });
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    console.error("Submission error:", error)
-    Swal.fire({
-      title: "Error!",
-      text: "Network error. Please try again later.",
-      icon: "error",
-      confirmButtonColor: "#ea580c",
-    })
-  } finally {
-    setIsLoading(false)
-  }
-}
-
+  };
 
   return (
     <motion.form
@@ -2416,9 +2350,13 @@ function ContactForm() {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
     >
-      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white text-center">Send Me a Message</h3>
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white text-center">
+        Send Me a Message
+      </h3>
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Name
+        </label>
         <input
           type="text"
           name="name"
@@ -2430,7 +2368,9 @@ function ContactForm() {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Email
+        </label>
         <input
           type="email"
           name="email"
@@ -2442,7 +2382,9 @@ function ContactForm() {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Message
+        </label>
         <textarea
           name="message"
           value={formData.message}
@@ -2461,5 +2403,5 @@ function ContactForm() {
         {isLoading ? "Sending..." : "Send Message"}
       </Button>
     </motion.form>
-  )
+  );
 }
