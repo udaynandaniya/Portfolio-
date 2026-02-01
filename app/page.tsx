@@ -367,7 +367,7 @@ export default function Portfolio() {
                   variant="outline"
                   onClick={() =>
                     window.open(
-                      "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQADWs8Hw3NcQYwtRc6jzGG3AYFdKwGIqtcJeXafS5cYifg?e=QTvbLa",
+                      "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCpA7FhgU4EQoSrJmcffeaYAe6orii8p6lIDsOubRu6cxA?e=ffUBTC",
                       "_blank",
                     )
                   }
@@ -452,7 +452,7 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {/* Rural Reach Healthcare Platform */}
-            <motion.div
+            {/* <motion.div     
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -513,7 +513,161 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+
+
+            {/* <motion.div
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5 }}
+>
+  
+  <div
+    className="relative h-32 sm:h-48 cursor-pointer overflow-hidden"
+    onClick={() => window.open("https://rural-reach-one.vercel.app/", "_blank")}
+  >
+    <Image
+      src="/Project_Image/Health_Care.png"
+      alt="Rural Reach Healthcare Platform"
+      fill
+      className="object-cover transition-transform duration-500 group-hover:scale-105"
+      priority
+    />
+
+    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+      <ExternalLink size={20} />
+    </div>
+  </div>
+
+  
+  <div className="p-4 sm:p-6">
+    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+      Rural Reach Healthcare Platform
+    </h3>
+
+    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+      A comprehensive healthcare platform connecting rural communities with medical services,
+      featuring emergency alerts, health tips, and hospital management.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-4">
+      {["React", "Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"].map((tech) => (
+        <span
+          key={tech}
+          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 text-green-700 dark:text-green-300 text-xs rounded-full font-medium"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <div className="flex flex-wrap gap-3 text-sm">
+      <a
+        href="https://rural-reach-one.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <ExternalLink size={14} />
+        Live Demo
+      </a>
+
+      <a
+        href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform-Readme.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <Code size={14} />
+        GitHub
+      </a>
+    </div>
+  </div>
+</motion.div> */}
+
+
+
+<motion.div
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5 }}
+>
+  {/* Image Hero */}
+  <div
+    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+    onClick={() => window.open("https://rural-reach-one.vercel.app/", "_blank")}
+  >
+    <Image
+      src="/Project_Image/Health_Care.png"
+      alt="Rural Reach Healthcare Platform"
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+      priority
+    />
+
+    {/* Overlay – subtle on mobile, hover on desktop */}
+    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+    {/* External link icon – always visible on mobile */}
+    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+      <ExternalLink size={18} />
+    </div>
+  </div>
+
+  {/* Content */}
+  <div className="p-4 sm:p-6">
+    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+      Rural Reach Healthcare Platform
+    </h3>
+
+    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+      A comprehensive healthcare platform connecting rural communities with medical services,
+      featuring emergency alerts, health tips, and hospital management.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-4">
+      {["React", "Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"].map((tech) => (
+        <span
+          key={tech}
+          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 text-green-700 dark:text-green-300 text-xs rounded-full font-medium"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <div className="flex flex-wrap gap-3 text-sm">
+      <a
+        href="https://rural-reach-one.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <ExternalLink size={14} />
+        Live Demo
+      </a>
+
+      <a
+        href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform-Readme.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <Code size={14} />
+        GitHub
+      </a>
+    </div>
+  </div>
+</motion.div>
+
+
+
 
             {/* Baby Shop E-commerce */}
             <motion.div
@@ -1184,7 +1338,7 @@ export default function Portfolio() {
 
               {/* Online Coding Challenge */}
               <motion.a
-                href="https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDEkYiCBCFHSL_-KChci-bkAbFFsA6VC5q7qLW9y4kEgJY?e=8N5N12"
+                href="https://aii01-my.sharepoint.com/my?viewid=37ed23eb%2D3f28%2D483e%2D9f12%2Dd8d9cb30b84f&id=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume%2FDsa%5Fcoding%5Fcompetition%5FKnowy%2Ejpg&parent=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
@@ -1218,7 +1372,7 @@ export default function Portfolio() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
               {/* Hack Orbit Finalist */}
               <motion.a
-                href="https://drive.google.com/file/d/1-MwH2qt07rILPgWnzpMpzRIWXMsUI27y/view"
+                href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBhxyjA1FqeS4PbnO61PxWNAbyNh7O79rAIIDTME0tMuVc?e=gr1jvA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
@@ -1248,6 +1402,43 @@ export default function Portfolio() {
                 </p>
               </motion.a>
 
+              {/* Policython X QCI 2025 */}
+<motion.a
+  href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDtd9GuX5-CRbdEoPTsBpqJAQ3ihncC_SBueoGKaI7D0Rw?e=SimzEg"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.3 }}
+>
+  <div className="flex items-start justify-between mb-4">
+    <div>
+      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        Policython X QCI 2025 – Top 10 Team
+      </h3>
+      <p className="text-sm text-indigo-600 dark:text-indigo-400 font-semibold">
+        MDI Murshidabad • National Policy Competition
+      </p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+        Jan 2025 • Online
+      </p>
+    </div>
+    <ExternalLink
+      size={20}
+      className="text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform"
+    />
+  </div>
+
+  <p className="text-gray-600 dark:text-gray-400 text-sm">
+    Secured a <span className="font-semibold">Top 10 national rank</span> in a multi-stage policy competition,
+    selected from <span className="font-semibold">200+ teams</span>, demonstrating strong analytical reasoning,
+    structured problem-solving, and policy innovation.
+  </p>
+</motion.a>
+
+
               {/* Hackspire 2025 */}
               <motion.a
                 href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y?e=iPgxe6"
@@ -1276,10 +1467,51 @@ export default function Portfolio() {
                   solutions.
                 </p>
               </motion.a>
+
+
+              {/* Odoo x Adani University Hackathon 2026 */}
+<motion.a
+  href="https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8?e=TtKicW"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.4 }}
+>
+  <div className="flex items-start justify-between mb-4">
+    <div>
+      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+        Odoo x Adani University Hackathon 2026 – Finalist
+      </h3>
+      <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold">
+        Adani University • Industry–Academic Hackathon
+      </p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+        Jan 2026 • Ahmedabad, India
+      </p>
+    </div>
+    <ExternalLink
+      size={20}
+      className="text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform"
+    />
+  </div>
+
+  <p className="text-gray-600 dark:text-gray-400 text-sm">
+    Selected for the <span className="font-semibold">Final Round</span> of the Odoo x Adani University Hackathon 2026,
+    demonstrating strong problem-solving ability, teamwork, and practical application of software development skills
+    in an industry-driven hackathon environment.
+  </p>
+</motion.a>
+
+
             </div>
           </div>
         </div>
       </section>
+
+      
 
       {/* Education Section - Changed from About */}
       <section
@@ -1552,56 +1784,109 @@ function ContactForm() {
     }))
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsLoading(true)
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault()
+  //   setIsLoading(true)
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "4f2b4e46-4cf2-4fbf-8313-eb75b66fa2e1",
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+  //   try {
+  //     const response = await fetch("https://api.web3forms.com/submit", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         access_key: "4f2b4e46-4cf2-4fbf-8313-eb75b66fa2e1",
+  //         name: formData.name,
+  //         email: formData.email,
+  //         message: formData.message,
+  //       }),
+  //     })
+
+  //     if (response.ok) {
+  //       Swal.fire({
+  //         title: "Success!",
+  //         text: "Your message has been sent successfully. I'll get back to you soon!",
+  //         icon: "success",
+  //         confirmButtonColor: "#ea580c",
+  //       })
+  //       setFormData({
+  //         name: "",
+  //         email: "",
+  //         message: "",
+  //       })
+  //     } else {
+  //       Swal.fire({
+  //         title: "Error!",
+  //         text: "There was an issue sending your message. Please try again.",
+  //         icon: "error",
+  //         confirmButtonColor: "#ea580c",
+  //       })
+  //     }
+  //   } catch (error) {
+  //     console.error("Form submission error:", error)
+  //     Swal.fire({
+  //       title: "Error!",
+  //       text: "There was an issue sending your message. Please try again.",
+  //       icon: "error",
+  //       confirmButtonColor: "#ea580c",
+  //     })
+  //   } finally {
+  //     setIsLoading(false)
+  //   }
+  // }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault()
+  setIsLoading(true)
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: "33400040-c76f-44b8-b5ed-5ffc375ec5c0",
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      }),
+    })
+
+    const data = await response.json()
+    // console.log("Web3Forms:", data) // 👈 CHECK THIS
+
+    if (data.success) {
+      Swal.fire({
+        title: "Success!",
+        text: "Your message has been sent successfully.",
+        icon: "success",
+        confirmButtonColor: "#ea580c",
       })
 
-      if (response.ok) {
-        Swal.fire({
-          title: "Success!",
-          text: "Your message has been sent successfully. I'll get back to you soon!",
-          icon: "success",
-          confirmButtonColor: "#ea580c",
-        })
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        })
-      } else {
-        Swal.fire({
-          title: "Error!",
-          text: "There was an issue sending your message. Please try again.",
-          icon: "error",
-          confirmButtonColor: "#ea580c",
-        })
-      }
-    } catch (error) {
-      console.error("Form submission error:", error)
+      setFormData({ name: "", email: "", message: "" })
+    } else {
       Swal.fire({
         title: "Error!",
-        text: "There was an issue sending your message. Please try again.",
+        text: data.message || "Submission failed.",
         icon: "error",
         confirmButtonColor: "#ea580c",
       })
-    } finally {
-      setIsLoading(false)
     }
+  } catch (error) {
+    console.error("Submission error:", error)
+    Swal.fire({
+      title: "Error!",
+      text: "Network error. Please try again later.",
+      icon: "error",
+      confirmButtonColor: "#ea580c",
+    })
+  } finally {
+    setIsLoading(false)
   }
+}
+
 
   return (
     <motion.form
