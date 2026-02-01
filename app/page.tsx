@@ -1699,7 +1699,7 @@ export default function Portfolio() {
 
 
       <section
-      
+
   id="certificates"
   className="py-16 sm:py-20 bg-white dark:bg-gray-800"
 >
@@ -1730,7 +1730,7 @@ export default function Portfolio() {
         },
         {
           title: "Hack Orbit – Finalist",
-          img: "/hackathone/hackorbit_final.png",
+          img: "/Hackathone/hackorbit_final.png",
           link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBhxyjA1FqeS4PbnO61PxWNAbyNh7O79rAIIDTME0tMuVc",
           tag: "Finalist • 400+ Teams",
           desc:
@@ -1816,7 +1816,7 @@ export default function Portfolio() {
         {
           title: "Online Coding Challenge",
           provider: "Coding Competition",
-          img: "/hackathone/Dsa_coding.jpg",
+          img: "/Hackathone/Dsa_coding.jpg",
           link: "https://aii01-my.sharepoint.com/my?viewid=37ed23eb%2D3f28%2D483e%2D9f12%2Dd8d9cb30b84f&id=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume%2FDsa%5Fcoding%5Fcompetition%5FKnowy%2Ejpg&parent=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume",
           desc:
             "Successfully completed competitive coding challenges demonstrating algorithmic thinking and problem-solving skills.",
@@ -1867,13 +1867,13 @@ export default function Portfolio() {
       {[
         {
           title: "Hackspire 2025",
-          img: "/hackathone/Hackspire_AdaniUniversity.png",
+          img: "/Hackathone/Hackspire_AdaniUniversity.png",
           link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y",
           tag: "Adani University",
         },
         {
           title: "Odoo x Adani University Hackathon 2026",
-          img: "/hackathone/oddo.jpeg",
+          img: "/Hackathone/oddo.jpeg",
           link: "https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8",
           tag: "Finalist • Industry–Academic Hackathon",
         },
