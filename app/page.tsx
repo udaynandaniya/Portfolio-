@@ -516,80 +516,6 @@ export default function Portfolio() {
             </motion.div> */}
 
 
-            {/* <motion.div
-  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.5 }}
->
-  
-  <div
-    className="relative h-32 sm:h-48 cursor-pointer overflow-hidden"
-    onClick={() => window.open("https://rural-reach-one.vercel.app/", "_blank")}
-  >
-    <Image
-      src="/Project_Image/Health_Care.png"
-      alt="Rural Reach Healthcare Platform"
-      fill
-      className="object-cover transition-transform duration-500 group-hover:scale-105"
-      priority
-    />
-
-    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-      <ExternalLink size={20} />
-    </div>
-  </div>
-
-  
-  <div className="p-4 sm:p-6">
-    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-      Rural Reach Healthcare Platform
-    </h3>
-
-    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-      A comprehensive healthcare platform connecting rural communities with medical services,
-      featuring emergency alerts, health tips, and hospital management.
-    </p>
-
-    <div className="flex flex-wrap gap-2 mb-4">
-      {["React", "Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"].map((tech) => (
-        <span
-          key={tech}
-          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 text-green-700 dark:text-green-300 text-xs rounded-full font-medium"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
-
-    <div className="flex flex-wrap gap-3 text-sm">
-      <a
-        href="https://rural-reach-one.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <ExternalLink size={14} />
-        Live Demo
-      </a>
-
-      <a
-        href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform-Readme.md"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-      >
-        <Code size={14} />
-        GitHub
-      </a>
-    </div>
-  </div>
-</motion.div> */}
-
-
-
 <motion.div
   className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
   initial={{ opacity: 0, y: 50 }}
@@ -670,7 +596,7 @@ export default function Portfolio() {
 
 
             {/* Baby Shop E-commerce */}
-            <motion.div
+            {/* <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -729,10 +655,84 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+
+            {/* Baby Shop E-commerce */}
+<motion.div
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+>
+  <div
+    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+    onClick={() => window.open("https://mahadev-baby-shop.vercel.app/", "_blank")}
+  >
+    <Image
+      src="/Project_Image/Ecommerce.png"
+      alt="Mahadev Baby Shop E-commerce Platform"
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+      priority
+    />
+
+    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+      <ExternalLink size={18} />
+    </div>
+  </div>
+
+  <div className="p-4 sm:p-6">
+    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+      Mahadev Baby Shop
+    </h3>
+
+    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+      Premium baby products e-commerce platform featuring a comprehensive product catalog,
+      secure shopping cart, user authentication, and a full admin dashboard.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-4">
+      {["Next.js", "TypeScript", "MongoDB", "JWT", "Cloudinary", "Tailwind CSS"].map((tech) => (
+        <span
+          key={tech}
+          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/30 dark:to-purple-900/30 text-pink-700 dark:text-pink-300 text-xs rounded-full font-medium"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <div className="flex flex-wrap gap-3 text-sm">
+      <a
+        href="https://mahadev-baby-shop.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <ExternalLink size={14} />
+        Live Demo
+      </a>
+
+      <a
+        href="https://github.com/udaynandaniya/baby_shop_readme.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <Code size={14} />
+        GitHub
+      </a>
+    </div>
+  </div>
+</motion.div>
+
 
             {/* NavneetHub */}
-            <motion.div
+            {/* <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -791,10 +791,85 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+
+<motion.div
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+>
+  <div
+    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+    onClick={() => window.open("https://navneethub.vercel.app/", "_blank")}
+  >
+    <Image
+      src="/Project_Image/Book_selling.png"
+      alt="NavneetHub Book Trading Platform"
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+      priority
+    />
+
+    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+      <ExternalLink size={18} />
+    </div>
+  </div>
+
+  <div className="p-4 sm:p-6">
+    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+      NavneetHub
+    </h3>
+
+    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+      A specialized platform connecting students for buying and selling used Navneet books with mobile verification,
+      secure session management, and automated cleanup.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-4">
+      {["Next.js", "TypeScript", "MongoDB", "Zod", "Tailwind CSS"].map((tech) => (
+        <span
+          key={tech}
+          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-blue-100 to-green-100 dark:from-blue-900/30 dark:to-green-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full font-medium"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <div className="flex flex-wrap gap-3 text-sm">
+      <a
+        href="https://navneethub.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <ExternalLink size={14} />
+        Live Demo
+      </a>
+
+      <a
+        href="https://github.com/udaynandaniya/Navneethub_"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <Code size={14} />
+        GitHub
+      </a>
+    </div>
+  </div>
+</motion.div>
+
+
+
 
             {/* Food Zone */}
-            <motion.div
+            {/* <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -853,10 +928,84 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+
+              <motion.div
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.3 }}
+>
+  <div
+    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+    onClick={() => window.open("https://food-xi-indol.vercel.app/", "_blank")}
+  >
+    <Image
+      src="/Project_Image/Foodie.png"
+      alt="Food Zone Food Ordering Platform"
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+      priority
+    />
+
+    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+      <ExternalLink size={18} />
+    </div>
+  </div>
+
+  <div className="p-4 sm:p-6">
+    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+      Food Zone
+    </h3>
+
+    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+      A responsive online food ordering platform with intuitive menu browsing,
+      cart management, and a seamless order confirmation experience.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-4">
+      {["HTML", "CSS", "JavaScript", "Responsive Design"].map((tech) => (
+        <span
+          key={tech}
+          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 text-orange-700 dark:text-orange-300 text-xs rounded-full font-medium"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <div className="flex flex-wrap gap-3 text-sm">
+      <a
+        href="https://food-xi-indol.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <ExternalLink size={14} />
+        Live Demo
+      </a>
+
+      <a
+        href="https://github.com/udaynandaniya/Food"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <Code size={14} />
+        GitHub
+      </a>
+    </div>
+  </div>
+</motion.div>
+
+
 
             {/* Product Selling Website */}
-            <motion.div
+            {/* <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -917,10 +1066,83 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+
+            <motion.div
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.4 }}
+>
+  <div
+    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+    onClick={() => window.open("https://product-selling-app.vercel.app/", "_blank")}
+  >
+    <Image
+      src="/Project_Image/Product_selling.png"
+      alt="Product Selling Website"
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+      priority
+    />
+
+    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+      <ExternalLink size={18} />
+    </div>
+  </div>
+
+  <div className="p-4 sm:p-6">
+    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+      Product Selling Website
+    </h3>
+
+    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+      A modern e-commerce platform with interactive product showcase, responsive design,
+      and an optimized user experience for online shopping.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-4">
+      {["HTML", "CSS", "JavaScript", "Responsive Design"].map((tech) => (
+        <span
+          key={tech}
+          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 text-xs rounded-full font-medium"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <div className="flex flex-wrap gap-3 text-sm">
+      <a
+        href="https://product-selling-app.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <ExternalLink size={14} />
+        Live Demo
+      </a>
+
+      <a
+        href="https://github.com/udaynandaniya/Product_selling_app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <Code size={14} />
+        GitHub
+      </a>
+    </div>
+  </div>
+</motion.div>
+
 
             {/* University Data Portal */}
-            <motion.div
+            {/* <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -981,7 +1203,80 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
+
+            <motion.div
+  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.5 }}
+>
+  <div
+    className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+    onClick={() => window.open("https://university-data-portal.vercel.app/", "_blank")}
+  >
+    <Image
+      src="/Project_Image/university_data_portal.png"
+      alt="University Data Portal"
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+      priority
+    />
+
+    <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+    <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+      <ExternalLink size={18} />
+    </div>
+  </div>
+
+  <div className="p-4 sm:p-6">
+    <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+      University Data Portal
+    </h3>
+
+    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+      A comprehensive role-based dashboard system for university data management across Admin,
+      Faculty, Students, and Alumni with secure authentication.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-4">
+      {["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Tailwind CSS"].map((tech) => (
+        <span
+          key={tech}
+          className="px-2 sm:px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded-full font-medium"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <div className="flex flex-wrap gap-3 text-sm">
+      <a
+        href="https://university-data-portal.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <ExternalLink size={14} />
+        Live Demo
+      </a>
+
+      <a
+        href="https://github.com/udaynandaniya/University_data_portal_readme.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+      >
+        <Code size={14} />
+        GitHub
+      </a>
+    </div>
+  </div>
+</motion.div>
+
           </div>
         </div>
       </section>
@@ -1000,96 +1295,320 @@ export default function Portfolio() {
 
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
-              {/* ShadowFox Internship */}
-              <motion.div
-                className="relative pl-6 sm:pl-8 pb-8 border-l-4 border-orange-500"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">💼</span>
-                </div>
-                <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Web Development Intern
-                  </h3>
-                  <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">ShadowFox</p>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
-                    One-month Virtual Internship • July 1st - July 31st, 2025
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">Coordinator: Mr. Aakash Sir</p>
-                  <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-3 text-sm sm:text-base">
-                    <li>• Built a fully responsive personal portfolio using React and Tailwind CSS</li>
-                    <li>
-                      • Developed a comprehensive e-commerce platform "Baby Shop" using Next.js 15, TypeScript, and
-                      MongoDB
-                    </li>
-                    <li>• Implemented secure JWT-based authentication with email OTP verification</li>
-                    <li>• Integrated Cloudinary for media management and Stripe for payment processing</li>
-                    <li>• Created admin dashboard with product management, order tracking, and analytics</li>
-                    <li>• Earned Certificate of Completion for exceptional performance</li>
-                  </ul>
-                  <div className="flex flex-wrap gap-3 text-sm">
-                    <a
-                      href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium"
-                    >
-                      <ExternalLink size={14} />
-                      View Certificate & Details
-                    </a>
-                    <a
-                      href="https://mahadev-baby-shop.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium"
-                    >
-                      <ExternalLink size={14} />
-                      Live Project
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
+             
 
-              {/* Skillcraft Technology Internship */}
-              <motion.div
-                className="relative pl-6 sm:pl-8 pb-8 border-l-4 border-orange-400"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-400 to-orange-300 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">💻</span>
-                </div>
-                <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Web Development Intern
-                  </h3>
-                  <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">Skillcraft Technology</p>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
-                    One-month Virtual Internship • June 1st - June 30th, 2025
-                  </p>
-                  <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-3 text-sm sm:text-base">
-                    <li>• Completed hands-on virtual internship focused on modern web development technologies</li>
-                    <li>• Built responsive applications using Next.js, TypeScript, and Tailwind CSS</li>
-                    <li>• Gained practical experience in full-stack development and API integration</li>
-                    <li>• Earned Certificate of Completion and Letter of Recommendation for outstanding performance</li>
-                  </ul>
-                  <a
-                    href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium text-sm"
-                  >
-                    <ExternalLink size={14} />
-                    View Certificate & Details
-                  </a>
-                </div>
-              </motion.div>
+              {/* <motion.div
+  className="relative pl-6 sm:pl-8 pb-8 border-l-4 border-orange-500"
+  initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+>
+  <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full flex items-center justify-center">
+    <span className="text-white text-xs">💼</span>
+  </div>
+
+  <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+      
+      <div>
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+          Software developer intern
+        </h3>
+
+        <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
+          ShadowFox
+        </p>
+
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
+          One-month Virtual Internship • July 1 – July 31, 2025
+        </p>
+
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+          Coordinator: Mr. Aakash Sir
+        </p>
+
+        <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
+          <li>• Built a fully responsive personal portfolio using React and Tailwind CSS</li>
+          <li>• Developed a production-ready e-commerce platform using Next.js, TypeScript, and MongoDB</li>
+          <li>• Implemented JWT authentication with email OTP verification</li>
+          <li>• Integrated Cloudinary for media management and Stripe for payments</li>
+          <li>• Built an admin dashboard for product, order, and analytics management</li>
+          <li>• Earned Certificate of Completion for strong performance</li>
+        </ul>
+
+        <div className="flex flex-wrap gap-4 text-sm">
+          <a
+            href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium"
+          >
+            <ExternalLink size={14} />
+            View Certificate
+          </a>
+
+          <a
+            href="https://mahadev-baby-shop.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium"
+          >
+            <ExternalLink size={14} />
+            Live Project
+          </a>
+        </div>
+      </div>
+
+      <div
+        className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
+        onClick={() =>
+          window.open(
+            "https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing",
+            "_blank"
+          )
+        }
+      >
+        <Image
+          src="/internship/ShadowFox.jpeg"
+          alt="ShadowFox Internship Certificate"
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 hover:scale-105"
+          priority
+        />
+
+        <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
+      </div>
+
+    </div>
+  </div>
+</motion.div>
+
+           
+
+<motion.div
+  className="relative pl-6 sm:pl-8 pb-8 border-l-4 border-orange-400"
+  initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+>
+  <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-400 to-orange-300 rounded-full flex items-center justify-center">
+    <span className="text-white text-xs">💻</span>
+  </div>
+
+  <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+      <div>
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+          Web Development Intern
+        </h3>
+
+        <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
+          Skillcraft Technology
+        </p>
+
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+          One-month Virtual Internship • June 1 – June 30, 2025
+        </p>
+
+        <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
+          <li>• Completed a hands-on virtual internship focused on modern web technologies</li>
+          <li>• Built responsive applications using Next.js, TypeScript, and Tailwind CSS</li>
+          <li>• Gained practical exposure to full-stack development and API integration</li>
+          <li>• Earned Certificate of Completion and Letter of Recommendation for performance</li>
+        </ul>
+
+        <a
+          href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors font-medium text-sm"
+        >
+          <ExternalLink size={14} />
+          View Certificate
+        </a>
+      </div>
+
+      <div
+        className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
+        onClick={() =>
+          window.open(
+            "https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing",
+            "_blank"
+          )
+        }
+      >
+        <Image
+          src="/internship/Skillcraft.jpg"
+          alt="Skillcraft Technology Internship Certificate"
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 hover:scale-105"
+          priority
+        />
+
+        <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
+      </div>
+    </div>
+  </div>
+</motion.div> */}
+
+<motion.div
+  className="relative pl-6 sm:pl-8 pb-10 border-l-4 border-orange-500"
+  initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+>
+  <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full flex items-center justify-center">
+    <span className="text-white text-xs">💼</span>
+  </div>
+
+  <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+
+      <div
+        className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
+        onClick={() =>
+          window.open(
+            "https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing",
+            "_blank"
+          )
+        }
+      >
+        <Image
+          src="/internship/ShadowFox.jpeg"
+          alt="ShadowFox Internship Certificate"
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 hover:scale-105"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
+      </div>
+
+      <div>
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+          Software Developer Intern
+        </h3>
+
+        <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
+          ShadowFox
+        </p>
+
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+          One-month Virtual Internship • July 1 – July 31, 2025
+        </p>
+
+        <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
+          <li>• Built a responsive portfolio using React and Tailwind CSS</li>
+          <li>• Developed a full-scale e-commerce platform using Next.js, TypeScript, and MongoDB</li>
+          <li>• Implemented JWT authentication with email OTP verification</li>
+          <li>• Integrated Cloudinary and Stripe for media and payments</li>
+          <li>• Built admin dashboards for products, orders, and analytics</li>
+        </ul>
+
+        <div className="flex flex-wrap gap-4 text-sm">
+          <a
+            href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
+          >
+            <ExternalLink size={14} />
+            View Certificate
+          </a>
+
+          <a
+            href="https://mahadev-baby-shop.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
+          >
+            <ExternalLink size={14} />
+            Live Project
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</motion.div>
+
+
+<motion.div
+  className="relative pl-6 sm:pl-8 pb-10 border-l-4 border-orange-400"
+  initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+>
+  <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-400 to-orange-300 rounded-full flex items-center justify-center">
+    <span className="text-white text-xs">💻</span>
+  </div>
+
+  <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+
+      <div
+        className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
+        onClick={() =>
+          window.open(
+            "https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing",
+            "_blank"
+          )
+        }
+      >
+        <Image
+          src="/internship/Skillcraft.jpg"
+          alt="Skillcraft Internship Certificate"
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 hover:scale-105"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/10 hover:bg-black/30 transition-colors duration-300" />
+      </div>
+
+      <div>
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+          Web Development Intern
+        </h3>
+
+        <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
+          Skillcraft Technology
+        </p>
+
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+          One-month Virtual Internship • June 1 – June 30, 2025
+        </p>
+
+        <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
+          <li>• Worked on modern web technologies and UI development</li>
+          <li>• Built responsive apps using Next.js, TypeScript, and Tailwind CSS</li>
+          <li>• Learned full-stack concepts and API integration</li>
+          <li>• Earned Certificate of Completion and Letter of Recommendation</li>
+        </ul>
+
+        <a
+          href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium text-sm"
+        >
+          <ExternalLink size={14} />
+          View Certificate
+        </a>
+      </div>
+
+    </div>
+  </div>
+</motion.div>
+
+
+              
             </div>
           </div>
         </div>
