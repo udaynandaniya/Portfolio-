@@ -581,12 +581,12 @@ export default function Portfolio() {
               <div
                 className="relative aspect-[16/9] cursor-pointer overflow-hidden"
                 onClick={() =>
-                  window.open("https://mahadev-baby-shop.vercel.app/", "_blank")
+                  window.open("https://babybloomapp.vercel.app/", "_blank")
                 }
               >
                 <Image
                   src="/Project_Image/Ecommerce.png"
-                  alt="Mahadev Baby Shop E-commerce Platform"
+                  alt=" Baby Shop E-commerce Platform"
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
@@ -602,7 +602,7 @@ export default function Portfolio() {
 
               <div className="p-4 sm:p-6">
                 <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                  Mahadev Baby Shop
+                        BabyBloom | Everything for Your Little One
                 </h3>
 
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
@@ -631,7 +631,7 @@ export default function Portfolio() {
 
                 <div className="flex flex-wrap gap-3 text-sm">
                   <a
-                    href="https://mahadev-baby-shop.vercel.app/"
+                    href="https://babybloomapp.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
@@ -1076,7 +1076,7 @@ export default function Portfolio() {
                         </a>
 
                         <a
-                          href="https://mahadev-baby-shop.vercel.app/"
+                          href="https://babybloomapp.vercel.app/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
