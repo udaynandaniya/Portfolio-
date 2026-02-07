@@ -663,12 +663,12 @@ export default function Portfolio() {
               <div
                 className="relative aspect-[16/9] cursor-pointer overflow-hidden"
                 onClick={() =>
-                  window.open("https://navneethub.vercel.app/", "_blank")
+                  window.open("https://bookshareapp.vercel.app/", "_blank")
                 }
               >
                 <Image
                   src="/Project_Image/Book_selling.png"
-                  alt="NavneetHub Book Trading Platform"
+                  alt="BookShareApp  Trading Platform"
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
@@ -684,7 +684,7 @@ export default function Portfolio() {
 
               <div className="p-4 sm:p-6">
                 <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                  NavneetHub
+                  BookShareApp
                 </h3>
 
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
@@ -712,7 +712,7 @@ export default function Portfolio() {
 
                 <div className="flex flex-wrap gap-3 text-sm">
                   <a
-                    href="https://navneethub.vercel.app/"
+                    href="https://bookshareapp.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
