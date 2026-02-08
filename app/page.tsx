@@ -571,7 +571,7 @@ export default function Portfolio() {
             </motion.div>
 
             {/* Baby Shop E-commerce */}
-            <motion.div
+            {/* <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -651,7 +651,7 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
@@ -1064,7 +1064,7 @@ export default function Portfolio() {
                         </li>
                       </ul>
 
-                      <div className="flex flex-wrap gap-4 text-sm">
+                      {/* <div className="flex flex-wrap gap-4 text-sm">
                         <a
                           href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
                           target="_blank"
@@ -1084,7 +1084,7 @@ export default function Portfolio() {
                           <ExternalLink size={14} />
                           Live Project
                         </a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
