@@ -19,6 +19,8 @@ import {
   Database,
   Cpu,
   Share2,
+  Wrench,
+  Server 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -474,13 +476,9 @@ export default function Portfolio() {
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-200  bg-clip-text text-transparent">
               Featured Projects
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
-              Explore my latest work showcasing full-stack development, modern
-              UI/UX, and innovative solutions
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
@@ -559,6 +557,91 @@ export default function Portfolio() {
 
                   <a
                     href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform-Readme.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+                  >
+                    <Code size={14} />
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+             <motion.div
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <div
+                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+                onClick={() =>
+                  window.open(
+                    "https://university-data-portal.vercel.app/",
+                    "_blank",
+                  )
+                }
+              >
+                <Image
+                  src="/Project_Image/university_data_portal.png"
+                  alt="University Data Portal"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+                  priority
+                />
+
+                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                  <ExternalLink size={18} />
+                </div>
+              </div>
+
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                  University Data Portal
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                  A comprehensive role-based dashboard system for university
+                  data management across Admin, Faculty, Students, and Alumni
+                  with secure authentication.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {[
+                    "React.js",
+                    "Node.js",
+                    "Express.js",
+                    "MongoDB",
+                    "JWT",
+                    "Tailwind CSS",
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 sm:px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded-full font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-3 text-sm">
+                  <a
+                    href="https://university-data-portal.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+                  >
+                    <ExternalLink size={14} />
+                    Live Demo
+                  </a>
+
+                  <a
+                    href="https://github.com/udaynandaniya/University_data_portal_readme.md"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
@@ -779,7 +862,8 @@ export default function Portfolio() {
                     (tech) => (
                       <span
                         key={tech}
-                        className="px-2 sm:px-3 py-1 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 text-orange-700 dark:text-orange-300 text-xs rounded-full font-medium"
+                        className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 text-xs rounded-full font-medium"
+                      
                       >
                         {tech}
                       </span>
@@ -891,90 +975,7 @@ export default function Portfolio() {
               </div>
             </motion.div>
 
-            <motion.div
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <div
-                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
-                onClick={() =>
-                  window.open(
-                    "https://university-data-portal.vercel.app/",
-                    "_blank",
-                  )
-                }
-              >
-                <Image
-                  src="/Project_Image/university_data_portal.png"
-                  alt="University Data Portal"
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
-                  priority
-                />
-
-                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
-
-                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-                  <ExternalLink size={18} />
-                </div>
-              </div>
-
-              <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                  University Data Portal
-                </h3>
-
-                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
-                  A comprehensive role-based dashboard system for university
-                  data management across Admin, Faculty, Students, and Alumni
-                  with secure authentication.
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {[
-                    "React.js",
-                    "Node.js",
-                    "Express.js",
-                    "MongoDB",
-                    "JWT",
-                    "Tailwind CSS",
-                  ].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 sm:px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded-full font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap gap-3 text-sm">
-                  <a
-                    href="https://university-data-portal.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-                  >
-                    <ExternalLink size={14} />
-                    Live Demo
-                  </a>
-
-                  <a
-                    href="https://github.com/udaynandaniya/University_data_portal_readme.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
-                  >
-                    <Code size={14} />
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+           
           </div>
         </div>
       </section>
@@ -988,9 +989,6 @@ export default function Portfolio() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
               Internship & Achievements
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 px-4">
-              My professional journey and accomplishments
-            </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -1030,7 +1028,7 @@ export default function Portfolio() {
 
                     <div>
                       <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
-                        Software Developer Intern
+                        Full-Stack Development Training
                       </h3>
 
                       <p className="text-orange-600 dark:text-orange-400 font-semibold mb-2">
@@ -1038,53 +1036,43 @@ export default function Portfolio() {
                       </p>
 
                       <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                        One-month Virtual Internship • July 1 – July 31, 2025
+                        1-Month Remote Training Program • Project-Based
                       </p>
 
-                      <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
-                        <li>
-                          • Built a responsive portfolio using React and
-                          Tailwind CSS
-                        </li>
-                        <li>
-                          • Developed a full-scale e-commerce platform using
-                          Next.js, TypeScript, and MongoDB
-                        </li>
-                        <li>
-                          • Implemented JWT authentication with email OTP
-                          verification
-                        </li>
-                        <li>
-                          • Integrated Cloudinary and Stripe for media and
-                          payments
-                        </li>
-                        <li>
-                          • Built admin dashboards for products, orders, and
-                          analytics
-                        </li>
-                      </ul>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-4">
+                        Worked on hands-on projects including a personal
+                        portfolio and a full-stack e-commerce application using
+                        modern web technologies.
+                      </p>
 
-                      {/* <div className="flex flex-wrap gap-4 text-sm">
+                      <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          Next.js
+                        </span>
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          TypeScript
+                        </span>
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          MongoDB
+                        </span>
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          JWT Auth
+                        </span>
+                      </div>
+
+                      <div className="flex flex-wrap gap-4 text-sm">
                         <a
                           href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
-                        >
-                          <ExternalLink size={14} />
+                       
+                          className="mt-5 inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
+                       
+                       >
+                          <ExternalLink size={16} />
                           View Certificate
                         </a>
-
-                        <a
-                          href="https://babybloomapp.vercel.app/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
-                        >
-                          <ExternalLink size={14} />
-                          Live Project
-                        </a>
-                      </div> */}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1133,32 +1121,45 @@ export default function Portfolio() {
                       </p>
 
                       <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                        One-month Virtual Internship • June 1 – June 30, 2025
+                        1-Month Remote Training Program • Project-Based
                       </p>
 
-                      <ul className="text-gray-700 dark:text-gray-300 space-y-2 mb-4 text-sm sm:text-base">
-                        <li>
-                          • Worked on modern web technologies and UI development
-                        </li>
-                        <li>
-                          • Built responsive apps using Next.js, TypeScript, and
-                          Tailwind CSS
-                        </li>
-                        <li>
-                          • Learned full-stack concepts and API integration
-                        </li>
-                        <li>
-                          • Earned Certificate of Completion and Letter of
-                          Recommendation
-                        </li>
-                      </ul>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-4">
+                        Focused on responsive website design and frontend
+                        development. Built web interfaces using HTML, CSS,
+                        JavaScript and React, implemented responsive layouts,
+                        and practiced API integration using API keys. Gained
+                        foundational understanding of recommendation logic and
+                        modern web application structure.
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          HTML
+                        </span>
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          CSS
+                        </span>
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          JavaScript
+                        </span>
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          React
+                        </span>
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          Responsive Design
+                        </span>
+                        <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/40 rounded-full">
+                          API Integration
+                        </span>
+                      </div>
 
                       <a
                         href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium text-sm"
-                      >
+                     className="mt-5 inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
+   >
                         <ExternalLink size={14} />
                         View Certificate
                       </a>
@@ -1172,14 +1173,14 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section
+      {/* <section
         id="skills"
         className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-orange-50 dark:from-gray-800 dark:to-gray-900"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
-              Technical Expertise
+              Technical Skills
             </h2>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 px-4">
               Technologies, tools, and core subjects I work with
@@ -1200,18 +1201,21 @@ export default function Portfolio() {
                   Languages
                 </h3>
               </div>
-              <div className="space-y-3">
-                {["C", "C++", "JavaScript", "TypeScript"].map((skill) => (
-                  <div
-                    key={skill}
-                    className="flex items-center space-x-3 group"
-                  >
-                    <div className="w-2 h-2 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full group-hover:scale-125 transition-transform"></div>
-                    <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
-                      {skill}
-                    </span>
-                  </div>
-                ))}
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {["C", "C++", "JavaScript", "TypeScript", "Java", "SQL"].map(
+                  (skill) => (
+                    <div key={skill} className="group relative">
+                      <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                        <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
+                          {skill}
+                        </span>
+                      </div>
+
+                      <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                    </div>
+                  ),
+                )}
               </div>
             </motion.div>
 
@@ -1228,20 +1232,26 @@ export default function Portfolio() {
                   Frontend
                 </h3>
               </div>
-              <div className="space-y-3">
-                {["HTML", "CSS", "React.js", "Next.js", "Tailwind CSS"].map(
-                  (skill) => (
-                    <div
-                      key={skill}
-                      className="flex items-center space-x-3 group"
-                    >
-                      <div className="w-2 h-2 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full group-hover:scale-125 transition-transform"></div>
-                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {[
+                  "HTML",
+                  "CSS",
+                  "React.js",
+                  "Next.js",
+                  "Tailwind CSS",
+                  "Responsive Design",
+                ].map((skill) => (
+                  <div key={skill} className="group relative">
+                    <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
                         {skill}
                       </span>
                     </div>
-                  ),
-                )}
+
+                    <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
@@ -1258,18 +1268,53 @@ export default function Portfolio() {
                   Backend
                 </h3>
               </div>
-              <div className="space-y-3">
-                {["Node.js", "Express.js", "MongoDB", "JWT"].map((skill) => (
-                  <div
-                    key={skill}
-                    className="flex items-center space-x-3 group"
-                  >
-                    <div className="w-2 h-2 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full group-hover:scale-125 transition-transform"></div>
-                    <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
-                      {skill}
-                    </span>
-                  </div>
-                ))}
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {["Node.js", "Express.js", "REST APIs", "JWT Auth"].map(
+                  (skill) => (
+                    <div key={skill} className="group relative">
+                      <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                        <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
+                          {skill}
+                        </span>
+                      </div>
+
+                      <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                    </div>
+                  ),
+                )}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex items-center mb-4">
+                <Server className="text-orange-600 mr-3" size={24} />
+
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Database & Cloud
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {["Node.js", "Express.js", "REST APIs", "JWT Auth"].map(
+                  (skill) => (
+                    <div key={skill} className="group relative">
+                      <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                        <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
+                          {skill}
+                        </span>
+                      </div>
+
+                      <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                    </div>
+                  ),
+                )}
               </div>
             </motion.div>
 
@@ -1281,657 +1326,452 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <div className="flex items-center mb-4">
-                <span className="text-orange-600 mr-3 text-2xl">🛠️</span>
+                <Wrench className="text-orange-600 mr-3" size={24} />
+
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
                   Tools & Core
                 </h3>
               </div>
-              <div className="space-y-3">
-                {["GitHub", "VS Code", "Cloudinary", "DBMS", "OOP", "Zod"].map(
-                  (skill) => (
-                    <div
-                      key={skill}
-                      className="flex items-center space-x-3 group"
-                    >
-                      <div className="w-2 h-2 bg-gradient-to-r from-orange-600 to-orange-500 rounded-full group-hover:scale-125 transition-transform"></div>
-                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {[
+                  "OOP",
+                  "DBMS",
+                  "DSA",
+                  "Git",
+                  "GitHub",
+                  "Postman",
+                  "VS Code",
+                  "Copilot",
+                  "Zod",
+                  
+                ].map((skill) => (
+                  <div key={skill} className="group relative">
+                    <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
                         {skill}
                       </span>
                     </div>
+
+                    <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section> */}
+
+
+      <section
+        id="skills"
+        className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-orange-50 dark:from-gray-800 dark:to-gray-900"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
+              Technical Skills
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 px-4">
+              Technologies, tools, and core subjects I work with
+            </p>
+          </div>
+
+         <div className="space-y-10">
+    <motion.div
+              className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex items-center mb-4">
+                <Cpu className="text-orange-600 mr-3" size={24} />
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Languages
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {["C", "C++", "JavaScript", "TypeScript", "Java", "SQL"].map(
+                  (skill) => (
+                    <div key={skill} className="group relative">
+                      <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                        <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
+                          {skill}
+                        </span>
+                      </div>
+
+                      <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                    </div>
                   ),
                 )}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="flex items-center mb-4">
+                <Code className="text-orange-500 mr-3" size={24} />
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Frontend
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {[
+                  "HTML",
+                  "CSS",
+                  "React.js",
+                  "Next.js",
+                  "Tailwind CSS",
+                  "Responsive Design",
+                ].map((skill) => (
+                  <div key={skill} className="group relative">
+                    <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
+                        {skill}
+                      </span>
+                    </div>
+
+                    <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex items-center mb-4">
+                <Database className="text-orange-600 mr-3" size={24} />
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Backend
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {["Node.js", "Express.js", "REST APIs", "JWT Auth"].map(
+                  (skill) => (
+                    <div key={skill} className="group relative">
+                      <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                        <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
+                          {skill}
+                        </span>
+                      </div>
+
+                      <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                    </div>
+                  ),
+                )}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex items-center mb-4">
+                <Server className="text-orange-600 mr-3" size={24} />
+
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Database & Cloud
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {["Node.js", "Express.js", "REST APIs", "JWT Auth"].map(
+                  (skill) => (
+                    <div key={skill} className="group relative">
+                      <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                        <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
+                          {skill}
+                        </span>
+                      </div>
+
+                      <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                    </div>
+                  ),
+                )}
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <div className="flex items-center mb-4">
+                <Wrench className="text-orange-600 mr-3" size={24} />
+
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Tools & Core
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                {[
+                  "OOP",
+                  "DBMS",
+                  "DSA",
+                  "Git",
+                  "GitHub",
+                  "Postman",
+                  "VS Code",
+                  "Copilot",
+                  "Zod",
+                  
+                ].map((skill) => (
+                  <div key={skill} className="group relative">
+                    <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
+                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors text-sm sm:text-base font-semibold tracking-wide">
+                        {skill}
+                      </span>
+                    </div>
+
+                    <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-orange-500/20 to-orange-400/20 blur-lg -z-10"></div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
+      
 
-
-
-
-
-      {/* <section
+      <section
         id="certificates"
         className="py-16 sm:py-20 bg-white dark:bg-gray-800"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* ================= HEADER ================= */}
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
-             Achievements & Certificates
+              Achievements & Certificates
             </h2>
-           
           </div>
 
-  
+          {/* ================= ACHIEVEMENTS ================= */}
+          <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+            Achievements :
+          </h3>
 
-          <div className="mb-16 sm:mb-20">
-            <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-              Certifications
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-             
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
+            {[
+              {
+                title: "Policython X QCI 2025",
+                img: "/certificates/Policython.png",
+                link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDtd9GuX5-CRbdEoPTsBpqJAQ3ihncC_SBueoGKaI7D0Rw",
+                tag: "Top 10 Team • 200+ Teams",
+                desc: "Selected among the Top 10 teams nationwide for Policython X QCI 2025, showcasing policy research, innovation, and teamwork.",
+                color: "text-indigo-600",
+              },
+              {
+                title: "Hack Orbit – Finalist",
+                img: "/Hackathone/hackorbit_final.png",
+                link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBhxyjA1FqeS4PbnO61PxWNAbyNh7O79rAIIDTME0tMuVc",
+                tag: "Finalist • 400+ Teams",
+                desc: "Finalist at Hack Orbit among 400+ teams, developing innovative tech solutions under competitive hackathon constraints.",
+                color: "text-orange-600",
+              },
+            ].map((item, i) => (
               <motion.a
-                href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDq74ygim3dSKfT_bvcwyD-AZCFXcOqQTmmZOwn5jEo-Uk?e=PfU6Lj"
+                key={item.title}
+                href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                      React.js
-                    </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
-                      Simplilearn Skillup
-                    </p>
-                  </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
+                <div className="relative h-40">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
                   />
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Professional certification in React.js development covering
-                  modern component patterns and best practices.
-                </p>
-              </motion.a>
 
+                <div className="p-5">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <ExternalLink
+                      size={18}
+                      className="text-orange-600 group-hover:scale-110 transition-transform"
+                    />
+                  </div>
+                  <p className={`text-sm font-semibold ${item.color} mb-2`}>
+                    {item.tag}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+          {/* ================= CERTIFICATIONS ================= */}
+          <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+            Certifications :
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
+            {[
+              {
+                title: "React.js",
+                provider: "Simplilearn Skillup",
+                img: "/certificates/Reactjs.png",
+                link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDq74ygim3dSKfT_bvcwyD-AZCFXcOqQTmmZOwn5jEo-Uk",
+                desc: "Professional certification in React.js covering modern component patterns, hooks, and best practices.",
+              },
+              {
+                title: "MERN Stack",
+                provider: "Simplilearn Skillup",
+                img: "/certificates/Mern_Stack.jpg",
+                link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQAIK7_jFoTxQZG44Nz-MWTmATFy8U7Z1RC67cT7mFsuD3A",
+                desc: "Complete MERN stack training including MongoDB, Express, React, and Node.js for full-stack development.",
+              },
+              {
+                title: "Node.js",
+                provider: "Simplilearn Skillup",
+                img: "/certificates/Nodejs.png",
+                link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQC29g5lxOS9R4PXNAgc2OylAW4BsH1QkKgPXFMdVHE4zKU",
+                desc: "Backend development certification focused on Node.js runtime, Express framework, and REST APIs.",
+              },
+              {
+                title: "Prompt Engineering",
+                provider: "IBM Skills Network",
+                img: "/certificates/Prompt_Engineer_Certificate.png",
+                link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQD5SpbZz_7VT7epInQSxM-bAXB-gn4Ow2v4rwz-m4AEgGw",
+                desc: "Training in prompt engineering techniques for AI and LLM-based applications.",
+              },
+              {
+                title: "Online Coding Challenge",
+                provider: "Coding Competition",
+                img: "/Hackathone/Dsa_coding.jpg",
+                link: "https://aii01-my.sharepoint.com/my?viewid=37ed23eb%2D3f28%2D483e%2D9f12%2Dd8d9cb30b84f&id=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume%2FDsa%5Fcoding%5Fcompetition%5FKnowy%2Ejpg&parent=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume",
+                desc: "Successfully completed competitive coding challenges demonstrating algorithmic thinking and problem-solving skills.",
+              },
+            ].map((item, i) => (
               <motion.a
-                href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQAIK7_jFoTxQZG44Nz-MWTmATFy8U7Z1RC67cT7mFsuD3A?e=WIVR6T"
+                key={item.title}
+                href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                      MERN Stack
-                    </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
-                      Simplilearn Skillup
-                    </p>
-                  </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
+                <div className="relative h-40">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
                   />
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Complete MERN stack certification covering MongoDB,
-                  Express.js, React, and Node.js for full-stack development.
-                </p>
-              </motion.a>
 
+                <div className="p-5">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <ExternalLink
+                      size={18}
+                      className="text-orange-600 group-hover:scale-110 transition-transform"
+                    />
+                  </div>
+                  <p className="text-sm font-semibold text-orange-600 mb-2">
+                    {item.provider}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+          {/* ================= HACKATHONS ================= */}
+          <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+            Hackathons :
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Hackspire 2025",
+                img: "/Hackathone/Hackspire_AdaniUniversity.png",
+                link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y",
+                tag: "Adani University",
+              },
+              {
+                title: "Odoo x Adani University Hackathon 2026",
+                img: "/Hackathone/oddo.jpeg",
+                link: "https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8",
+                tag: "Finalist • Industry–Academic Hackathon",
+              },
+            ].map((item, i) => (
               <motion.a
-                href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQC29g5lxOS9R4PXNAgc2OylAW4BsH1QkKgPXFMdVHE4zKU?e=KOlN8h"
+                key={item.title}
+                href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                      Node.js
-                    </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
-                      Simplilearn Skillup
-                    </p>
-                  </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Backend development certification focusing on Node.js runtime,
-                  Express framework, and API development.
-                </p>
-              </motion.a>
-
-              
-              <motion.a
-                href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQD5SpbZz_7VT7epInQSxM-bAXB-gn4Ow2v4rwz-m4AEgGw?e=z3XtvE"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                      Prompt Engineering
-                    </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
-                      IBM Skills Network
-                    </p>
-                  </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Professional training in prompt engineering techniques for AI
-                  and machine learning applications.
-                </p>
-              </motion.a>
-
-              
-              <motion.a
-                href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y?e=iPgxe6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                      Hackspire 2025
-                    </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
-                      Adani University
-                    </p>
-                  </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Participated in Hackspire 2025 hackathon organized by Adani
-                  University with innovative project solutions.
-                </p>
-              </motion.a>
-
-              <motion.a
-                href="https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8?e=TtKicW"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                      Odoo x Adani University Hackathon 2026 – Finalist
-                    </h3>
-                    <p className="text-sm text-purple-600 dark:text-purple-400 font-semibold">
-                      Adani University • Industry–Academic Hackathon
-                    </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                      Jan 2026 • Ahmedabad, India
-                    </p>
-                  </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform"
+                <div className="relative h-40">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
                   />
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Selected for the{" "}
-                  <span className="font-semibold">Final Round</span> of the Odoo
-                  x Adani University Hackathon 2026, demonstrating strong
-                  problem-solving ability, teamwork, and practical application
-                  of software development skills in an industry-driven hackathon
-                  environment.
-                </p>
-              </motion.a>
-
-                  <motion.a
-                href="https://aii01-my.sharepoint.com/my?viewid=37ed23eb%2D3f28%2D483e%2D9f12%2Dd8d9cb30b84f&id=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume%2FDsa%5Fcoding%5Fcompetition%5FKnowy%2Ejpg&parent=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 p-6 cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                      Online Coding Challenge
+                <div className="p-5">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
+                      {item.title}
                     </h3>
-                    <p className="text-sm text-orange-600 dark:text-orange-400 font-semibold">
-                      Coding Competition
-                    </p>
+                    <ExternalLink
+                      size={18}
+                      className="text-orange-600 group-hover:scale-110 transition-transform"
+                    />
                   </div>
-                  <ExternalLink
-                    size={20}
-                    className="text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform"
-                  />
+                  <p className="text-sm font-semibold text-orange-600">
+                    {item.tag}
+                  </p>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Successfully completed online coding challenges demonstrating
-                  problem-solving and algorithmic skills.
-                </p>
               </motion.a>
-            </div>
+            ))}
           </div>
-
-          
         </div>
-      </section> */}
-
-
-
-
-
-
-
-{/* <section
-  id="certificates"
-  className="py-16 sm:py-20 bg-white dark:bg-gray-800"
->
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12 sm:mb-16">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
-        Achievements & Certificates
-      </h2>
-    </div>
-
-    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-      Achievements
-    </h3>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
-      <motion.a
-        href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDtd9GuX5-CRbdEoPTsBpqJAQ3ihncC_SBueoGKaI7D0Rw"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
-      >
-        <div className="relative h-40">
-          <Image src="/certificates/Policython.png" alt="Policython" fill className="object-cover" />
-        </div>
-        <div className="p-5">
-          <h3 className="font-bold text-lg">Policython X QCI 2025</h3>
-          <p className="text-sm text-indigo-600 font-semibold">Top 10 Team • 200+ Teams</p>
-        </div>
-      </motion.a>
-
-      <motion.a
-        href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBhxyjA1FqeS4PbnO61PxWNAbyNh7O79rAIIDTME0tMuVc"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
-      >
-        <div className="relative h-40">
-          <Image src="/hackathone/hackorbit_final.png" alt="Hack Orbit" fill className="object-cover" />
-        </div>
-        <div className="p-5">
-          <h3 className="font-bold text-lg">Hack Orbit</h3>
-          <p className="text-sm text-orange-600 font-semibold">Finalist • 400+ Teams</p>
-        </div>
-      </motion.a>
-    </div>
-
-    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-      Certifications
-    </h3>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
-      {[
-        {
-          title: "React.js",
-          img: "/certificates/React_js.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDq74ygim3dSKfT_bvcwyD-AZCFXcOqQTmmZOwn5jEo-Uk",
-        },
-        {
-          title: "MERN Stack",
-          img: "/certificates/Mern_Stack.jpg",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQAIK7_jFoTxQZG44Nz-MWTmATFy8U7Z1RC67cT7mFsuD3A",
-        },
-        {
-          title: "Node.js",
-          img: "/certificates/Nodejs.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQC29g5lxOS9R4PXNAgc2OylAW4BsH1QkKgPXFMdVHE4zKU",
-        },
-        {
-          title: "Prompt Engineering",
-          img: "/certificates/Prompt_Engineer_Certificate.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQD5SpbZz_7VT7epInQSxM-bAXB-gn4Ow2v4rwz-m4AEgGw",
-        },
-        {
-          title: "Coding Challenge",
-          img: "/hackathone/Dsa_coding.jpg",
-          link: "https://aii01-my.sharepoint.com/my?viewid=37ed23eb-3f28-483e-9f12-d8d9cb30b84f",
-        },
-      ].map((item) => (
-        <motion.a
-          key={item.title}
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
-        >
-          <div className="relative h-40">
-            <Image src={item.img} alt={item.title} fill className="object-cover" />
-          </div>
-          <div className="p-5">
-            <h3 className="font-bold text-lg">{item.title}</h3>
-          </div>
-        </motion.a>
-      ))}
-    </div>
-
-    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-      Hackathons
-    </h3>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-      <motion.a
-        href="https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
-      >
-        <div className="relative h-40">
-          <Image src="/hackathone/Hackspire_AdaniUniversity.png" alt="Hackspire" fill className="object-cover" />
-        </div>
-        <div className="p-5">
-          <h3 className="font-bold text-lg">Hackspire 2025</h3>
-          <p className="text-sm text-orange-600 font-semibold">Adani University</p>
-        </div>
-      </motion.a>
-
-      <motion.a
-        href="https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all overflow-hidden border"
-      >
-        <div className="relative h-40">
-          <Image src="/hackathone/oddo.jpeg" alt="Odoo Hackathon" fill className="object-cover" />
-        </div>
-        <div className="p-5">
-          <h3 className="font-bold text-lg">Odoo x Adani University Hackathon</h3>
-          <p className="text-sm text-purple-600 font-semibold">Finalist • 2026</p>
-        </div>
-      </motion.a>
-    </div>
-  </div>
-</section> */}
-
-
-      <section
-
-  id="certificates"
-  className="py-16 sm:py-20 bg-white dark:bg-gray-800"
->
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    {/* ================= HEADER ================= */}
-    <div className="text-center mb-12 sm:mb-16">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
-        Achievements & Certificates
-      </h2>
-    </div>
-
-    {/* ================= ACHIEVEMENTS ================= */}
-    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-      Achievements
-    </h3>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
-      {[
-        {
-          title: "Policython X QCI 2025",
-          img: "/certificates/Policython.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDtd9GuX5-CRbdEoPTsBpqJAQ3ihncC_SBueoGKaI7D0Rw",
-          tag: "Top 10 Team • 200+ Teams",
-          desc:
-            "Selected among the Top 10 teams nationwide for Policython X QCI 2025, showcasing policy research, innovation, and teamwork.",
-          color: "text-indigo-600",
-        },
-        {
-          title: "Hack Orbit – Finalist",
-          img: "/Hackathone/hackorbit_final.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBhxyjA1FqeS4PbnO61PxWNAbyNh7O79rAIIDTME0tMuVc",
-          tag: "Finalist • 400+ Teams",
-          desc:
-            "Finalist at Hack Orbit among 400+ teams, developing innovative tech solutions under competitive hackathon constraints.",
-          color: "text-orange-600",
-        },
-      ].map((item, i) => (
-        <motion.a
-          key={item.title}
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: i * 0.1 }}
-          className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
-        >
-          <div className="relative h-40">
-            <Image src={item.img} alt={item.title} fill className="object-cover" />
-          </div>
-
-          <div className="p-5">
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
-                {item.title}
-              </h3>
-              <ExternalLink
-                size={18}
-                className="text-orange-600 group-hover:scale-110 transition-transform"
-              />
-            </div>
-            <p className={`text-sm font-semibold ${item.color} mb-2`}>
-              {item.tag}
-            </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              {item.desc}
-            </p>
-          </div>
-        </motion.a>
-      ))}
-    </div>
-
-    {/* ================= CERTIFICATIONS ================= */}
-    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-      Certifications
-    </h3>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
-      {[
-        {
-          title: "React.js",
-          provider: "Simplilearn Skillup",
-          img: "/certificates/Reactjs.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDq74ygim3dSKfT_bvcwyD-AZCFXcOqQTmmZOwn5jEo-Uk",
-          desc:
-            "Professional certification in React.js covering modern component patterns, hooks, and best practices.",
-        },
-        {
-          title: "MERN Stack",
-          provider: "Simplilearn Skillup",
-          img: "/certificates/Mern_Stack.jpg",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQAIK7_jFoTxQZG44Nz-MWTmATFy8U7Z1RC67cT7mFsuD3A",
-          desc:
-            "Complete MERN stack training including MongoDB, Express, React, and Node.js for full-stack development.",
-        },
-        {
-          title: "Node.js",
-          provider: "Simplilearn Skillup",
-          img: "/certificates/Nodejs.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQC29g5lxOS9R4PXNAgc2OylAW4BsH1QkKgPXFMdVHE4zKU",
-          desc:
-            "Backend development certification focused on Node.js runtime, Express framework, and REST APIs.",
-        },
-        {
-          title: "Prompt Engineering",
-          provider: "IBM Skills Network",
-          img: "/certificates/Prompt_Engineer_Certificate.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQD5SpbZz_7VT7epInQSxM-bAXB-gn4Ow2v4rwz-m4AEgGw",
-          desc:
-            "Training in prompt engineering techniques for AI and LLM-based applications.",
-        },
-        {
-          title: "Online Coding Challenge",
-          provider: "Coding Competition",
-          img: "/Hackathone/Dsa_coding.jpg",
-          link: "https://aii01-my.sharepoint.com/my?viewid=37ed23eb%2D3f28%2D483e%2D9f12%2Dd8d9cb30b84f&id=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume%2FDsa%5Fcoding%5Fcompetition%5FKnowy%2Ejpg&parent=%2Fpersonal%2Fudaynandaniya%5Fict22%5Fadaniuni%5Fac%5Fin%2FDocuments%2FResume",
-          desc:
-            "Successfully completed competitive coding challenges demonstrating algorithmic thinking and problem-solving skills.",
-        },
-      ].map((item, i) => (
-        <motion.a
-          key={item.title}
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: i * 0.1 }}
-          className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
-        >
-          <div className="relative h-40">
-            <Image src={item.img} alt={item.title} fill className="object-cover" />
-          </div>
-
-          <div className="p-5">
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
-                {item.title}
-              </h3>
-              <ExternalLink
-                size={18}
-                className="text-orange-600 group-hover:scale-110 transition-transform"
-              />
-            </div>
-            <p className="text-sm font-semibold text-orange-600 mb-2">
-              {item.provider}
-            </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              {item.desc}
-            </p>
-          </div>
-        </motion.a>
-      ))}
-    </div>
-
-    {/* ================= HACKATHONS ================= */}
-    <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-      Hackathons
-    </h3>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-      {[
-        {
-          title: "Hackspire 2025",
-          img: "/Hackathone/Hackspire_AdaniUniversity.png",
-          link: "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCB5rpPQtfUR7YfguPfJ99bAad3QKI3QTNC1FYK88do83Y",
-          tag: "Adani University",
-        },
-        {
-          title: "Odoo x Adani University Hackathon 2026",
-          img: "/Hackathone/oddo.jpeg",
-          link: "https://aii01-my.sharepoint.com/:i:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQDDlt7Mi5JRRpSSKH3uHHNrAcjhwUX9gOCKqmE0gAVNQh8",
-          tag: "Finalist • Industry–Academic Hackathon",
-        },
-      ].map((item, i) => (
-        <motion.a
-          key={item.title}
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: i * 0.1 }}
-          className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-2 transition-all border overflow-hidden"
-        >
-          <div className="relative h-40">
-            <Image src={item.img} alt={item.title} fill className="object-cover" />
-          </div>
-
-          <div className="p-5">
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="font-bold text-lg group-hover:text-orange-600 transition-colors">
-                {item.title}
-              </h3>
-              <ExternalLink
-                size={18}
-                className="text-orange-600 group-hover:scale-110 transition-transform"
-              />
-            </div>
-            <p className="text-sm font-semibold text-orange-600">
-              {item.tag}
-            </p>
-          </div>
-        </motion.a>
-      ))}
-    </div>
-  </div>
-</section>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      </section>
 
       <section
         id="education"
@@ -1956,7 +1796,7 @@ export default function Portfolio() {
               Educational Background
             </h3>
             <div className="space-y-6">
-              <div className="border-l-4 border-orange-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
+              <div className=" border-orange-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
                 <h4 className="font-bold text-base sm:text-lg text-gray-900 dark:text-white">
                   Bachelor of Technology
                 </h4>
@@ -1970,20 +1810,20 @@ export default function Portfolio() {
                   CGPA: 7.78
                 </p>
               </div>
-              <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
+              <div className=" pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
                 <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
                   Higher Secondary Certificate
                 </h4>
                 <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                  Alpha Vidya Sankul • 67.23%
+                  Alpha Vidya Sankul • 74.67 PR
                 </p>
               </div>
-              <div className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
+              <div className=" pl-4 sm:pl-6 hover:pl-6 sm:hover:pl-8 transition-all duration-300">
                 <h4 className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">
                   Secondary School Certificate
                 </h4>
                 <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                  S.D.B High School • 76.66%
+                  S.D.B High School • 94.73 PR
                 </p>
               </div>
             </div>
