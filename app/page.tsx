@@ -20,10 +20,18 @@ import {
   Cpu,
   Share2,
   Wrench,
-  Server 
+  Server,
+  Trophy,
+  Award,
+  Code2,
+  Briefcase, Building2,
+  Globe 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import SectionTitle from "@/components/SectionTitle";
+
+
 
 export default function Portfolio() {
   const { theme, setTheme } = useTheme();
@@ -568,7 +576,7 @@ export default function Portfolio() {
               </div>
             </motion.div>
 
-             <motion.div
+            <motion.div
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -863,7 +871,6 @@ export default function Portfolio() {
                       <span
                         key={tech}
                         className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 text-xs rounded-full font-medium"
-                      
                       >
                         {tech}
                       </span>
@@ -974,20 +981,18 @@ export default function Portfolio() {
                 </div>
               </div>
             </motion.div>
-
-           
           </div>
         </div>
       </section>
 
-      <section
+      {/* <section
         id="internship"
         className="py-16 sm:py-20 bg-white dark:bg-gray-900"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
-              Internship & Achievements
+              Internship 
             </h2>
           </div>
 
@@ -1000,9 +1005,9 @@ export default function Portfolio() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full flex items-center justify-center">
+                {/* <div className="absolute -left-2 sm:-left-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs">💼</span>
-                </div>
+                </div> 
 
                 <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-4 sm:p-6 rounded-xl">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
@@ -1065,10 +1070,8 @@ export default function Portfolio() {
                           href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
                           target="_blank"
                           rel="noopener noreferrer"
-                       
                           className="mt-5 inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
-                       
-                       >
+                        >
                           <ExternalLink size={16} />
                           View Certificate
                         </a>
@@ -1125,12 +1128,11 @@ export default function Portfolio() {
                       </p>
 
                       <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-4">
-                        Focused on responsive website design and frontend
-                        development. Built web interfaces using HTML, CSS,
-                        JavaScript and React, implemented responsive layouts,
-                        and practiced API integration using API keys. Gained
-                        foundational understanding of recommendation logic and
-                        modern web application structure.
+                        Focused on responsive web design and frontend
+                        development. Built interfaces using HTML, CSS,
+                        JavaScript, and React, implemented responsive layouts,
+                        integrated APIs, and gained foundational knowledge of
+                        recommendation logic and modern web app architecture.
                       </p>
 
                       <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
@@ -1158,8 +1160,8 @@ export default function Portfolio() {
                         href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
-                     className="mt-5 inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
-   >
+                        className="mt-5 inline-flex items-center gap-1 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-medium"
+                      >
                         <ExternalLink size={14} />
                         View Certificate
                       </a>
@@ -1170,7 +1172,7 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Skills Section */}
       {/* <section
@@ -1362,6 +1364,220 @@ export default function Portfolio() {
       </section> */}
 
 
+    
+
+<section
+  id="internship"
+  className="py-16 sm:py-20 bg-white dark:bg-gray-900"
+>
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* ===== Section Heading ===== */}
+    <div className="text-center mb-14">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-600 bg-clip-text text-transparent tracking-tight">
+        Internship Experience
+      </h2>
+    </div>
+
+    <div className="max-w-4xl mx-auto space-y-10">
+
+      {/* ================= SHADOWFOX ================= */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="group relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 sm:p-7 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-orange-200/40 dark:hover:shadow-orange-900/20 transition-all duration-300"
+      >
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+
+          {/* Certificate Image */}
+          <div
+            className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing",
+                "_blank"
+              )
+            }
+          >
+            <Image
+              src="/internship/ShadowFox.jpeg"
+              alt="ShadowFox Internship Certificate"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          {/* Content */}
+          <div>
+
+            {/* Role Header */}
+            <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/40 ring-1 ring-orange-300/60 dark:ring-orange-700/50">
+                <Briefcase className="text-orange-500" size={18} />
+              </div>
+
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white leading-tight">
+                  Full-Stack Development Training
+                </h3>
+          
+
+
+                <a
+  href="https://www.linkedin.com/company/shadowfoxinfo/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded-md
+  bg-orange-100 dark:bg-orange-900/40
+  text-orange-700 dark:text-orange-300
+  text-sm font-medium
+  hover:bg-orange-200 dark:hover:bg-orange-800/50
+  transition"
+>
+  <Globe size={14} />
+  ShadowFox
+  <ExternalLink size={13} className="opacity-70" />
+</a>
+
+              </div>
+            </div>
+
+            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              1-Month Remote Training Program • Project-Based
+            </p>
+
+            <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-4">
+              Worked on a personal portfolio and a full-stack e-commerce application using modern web technologies and authentication systems.
+            </p>
+
+            {/* Skills */}
+            <div className="flex flex-wrap gap-2 text-sm">
+              {["Next.js", "TypeScript", "MongoDB", "JWT Auth"].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 transition"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            {/* Button */}
+            <a
+              href="https://drive.google.com/drive/folders/1wVxm1g1ATfEytpJPLL-46C83bSU_HBTP?usp=sharing"
+              target="_blank"
+              className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition shadow-md hover:shadow-lg"
+            >
+              <ExternalLink size={16} />
+              View Certificate
+            </a>
+
+          </div>
+        </div>
+      </motion.div>
+
+
+      {/* ================= SKILLCRAFT ================= */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="group relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 sm:p-7 rounded-2xl shadow-md hover:shadow-2xl hover:shadow-orange-200/40 dark:hover:shadow-orange-900/20 transition-all duration-300"
+      >
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+
+          <div
+            className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg cursor-pointer"
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing",
+                "_blank"
+              )
+            }
+          >
+            <Image
+              src="/internship/Skillcraft.jpg"
+              alt="Skillcraft Internship Certificate"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          <div>
+
+            <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/40 ring-1 ring-orange-300/60 dark:ring-orange-700/50">
+                <Briefcase className="text-orange-500" size={18} />
+              </div>
+
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white leading-tight">
+                  Web Development Intern
+                </h3>
+                <a
+  href="https://www.linkedin.com/company/skillcraft-technology/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded-md
+  bg-orange-100 dark:bg-orange-900/40
+  text-orange-700 dark:text-orange-300
+  text-sm font-medium
+  hover:bg-orange-200 dark:hover:bg-orange-800/50
+  transition"
+>
+  <Globe size={14} />
+  Skillcraft Technology
+  <ExternalLink size={13} className="opacity-70" />
+</a>
+
+              </div>
+            </div>
+
+            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              1-Month Remote Training Program • Project-Based
+            </p>
+
+            <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-4">
+              Built responsive interfaces using HTML, CSS, JavaScript and React, implemented layouts, integrated APIs, and understood modern web architecture.
+            </p>
+
+            <div className="flex flex-wrap gap-2 text-sm">
+              {["HTML","CSS","JavaScript","React","Responsive Design","API Integration"].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-600 hover:border-orange-400 hover:text-orange-600 transition"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            <a
+              href="https://drive.google.com/drive/folders/1xQ8mabOZCPr73XEbkDTAFVo5Npcu-lBm?usp=sharing"
+              target="_blank"
+              className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition shadow-md hover:shadow-lg"
+            >
+              <ExternalLink size={16} />
+              View Certificate
+            </a>
+
+          </div>
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
+
+    
+
+
       <section
         id="skills"
         className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-orange-50 dark:from-gray-800 dark:to-gray-900"
@@ -1376,8 +1592,8 @@ export default function Portfolio() {
             </p>
           </div>
 
-         <div className="space-y-10">
-    <motion.div
+          <div className="space-y-10">
+            <motion.div
               className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1532,7 +1748,6 @@ export default function Portfolio() {
                   "VS Code",
                   "Copilot",
                   "Zod",
-                  
                 ].map((skill) => (
                   <div key={skill} className="group relative">
                     <div className="px-4 py-2 rounded-full bg-white dark:bg-gray-800/60 border-[2.5px] border-orange-400 dark:border-orange-500 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500 transition-all duration-300 backdrop-blur-md cursor-default hover:scale-[1.05]">
@@ -1550,8 +1765,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      
-
       <section
         id="certificates"
         className="py-16 sm:py-20 bg-white dark:bg-gray-800"
@@ -1565,9 +1778,13 @@ export default function Portfolio() {
           </div>
 
           {/* ================= ACHIEVEMENTS ================= */}
-          <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-            Achievements :
-          </h3>
+          {/* <h3 className="text-xl sm:text-2xl font-bold mb-8 text-orange-500 dark:text-orange-400">
+  Achievements :
+</h3> */}
+
+<SectionTitle icon={Trophy} title="Achievements" />
+
+
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
             {[
@@ -1630,9 +1847,12 @@ export default function Portfolio() {
           </div>
 
           {/* ================= CERTIFICATIONS ================= */}
-          <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+          {/* <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
             Certifications :
-          </h3>
+          </h3> */}
+
+          <SectionTitle icon={Award} title="Certifications" />
+
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
             {[
@@ -1714,9 +1934,12 @@ export default function Portfolio() {
           </div>
 
           {/* ================= HACKATHONS ================= */}
-          <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+          {/* <h3 className="text-xl sm:text-2xl font-bold mb-8 text-gray-900 dark:text-white">
             Hackathons :
-          </h3>
+          </h3> */}
+
+          <SectionTitle icon={Code2} title="Hackathons" />
+
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {[
