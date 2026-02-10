@@ -414,7 +414,7 @@ export default function Portfolio() {
                   variant="outline"
                   onClick={() =>
                     window.open(
-                      "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQCpA7FhgU4EQoSrJmcffeaYAe6orii8p6lIDsOubRu6cxA?e=ffUBTC",
+                      "https://aii01-my.sharepoint.com/:b:/g/personal/udaynandaniya_ict22_adaniuni_ac_in/IQBvt5bTBX4pT6y1ham1tj2XAaMJqFYJndygTmiyxmBCBB8?e=iOSPse",
                       "_blank",
                     )
                   }
