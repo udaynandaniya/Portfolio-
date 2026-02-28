@@ -573,7 +573,8 @@ export default function Portfolio() {
                   </a>
 
                   <a
-                    href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform-Readme.md"
+                    
+                    href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform_"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
@@ -658,7 +659,7 @@ export default function Portfolio() {
                   </a>
 
                   <a
-                    href="https://github.com/udaynandaniya/University_data_portal_readme.md"
+                    href="https://github.com/udaynandaniya/University_data_portal"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
@@ -822,7 +823,7 @@ export default function Portfolio() {
                   </a>
 
                   <a
-                    href="https://github.com/udaynandaniya/Navneethub_"
+                    href="https://github.com/udaynandaniya/BookShare"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
