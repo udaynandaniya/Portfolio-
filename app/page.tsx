@@ -1,5 +1,3 @@
-
-
 "use client";
 import type React from "react";
 import { useState, useEffect } from "react";
@@ -478,13 +476,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <ResumeModal
-  open={openResume}
-  onClose={() => setOpenResume(false)}
-/>
-
-
-     
+      <ResumeModal open={openResume} onClose={() => setOpenResume(false)} />
 
       {/* Projects Section */}
       <section
@@ -573,7 +565,6 @@ export default function Portfolio() {
                   </a>
 
                   <a
-                    
                     href="https://github.com/udaynandaniya/Rural_Reach_HealthCare_Platform_"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -981,6 +972,94 @@ export default function Portfolio() {
 
                   <a
                     href="https://github.com/udaynandaniya/Product_selling_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+                  >
+                    <Code size={14} />
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              {/* Image Hero */}
+              <div
+                className="relative aspect-[16/9] cursor-pointer overflow-hidden"
+                onClick={() =>
+                  window.open(
+                    "https://t20-indian-cricket-stats.vercel.app/",
+                    "_blank",
+                  )
+                }
+              >
+                <Image
+                  src="/Project_Image/t20_cricket_stats.png"
+                  alt="T20 Indian Cricket Stats"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 sm:group-hover:scale-105"
+                  priority
+                />
+
+                <div className="absolute inset-0 bg-black/10 sm:bg-black/0 sm:group-hover:bg-black/30 transition-colors duration-300" />
+
+                <div className="absolute bottom-3 right-3 text-white sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                  <ExternalLink size={18} />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                  T20 Indian Cricket Stats
+                </h3>
+
+                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                  A Next.js SEO-focused web application that displays statistics
+                  of Indian T20 cricket players using SSR and SSG. Includes
+                  programmatic SEO pages, structured data (JSON-LD), and
+                  optimized performance.
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {[
+                    "Next.js",
+                    "React",
+                    "Tailwind CSS",
+                    "SEO",
+                    "JSON-LD",
+                    "SSG / ISR",
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 sm:px-3 py-1 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900/30 dark:to-blue-900/30 text-green-700 dark:text-green-300 text-xs rounded-full font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-3 text-sm">
+                  <a
+                    href="https://t20-indian-cricket-stats.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
+                  >
+                    <ExternalLink size={14} />
+                    Live Demo
+                  </a>
+
+                  <a
+                    href="https://github.com/udaynandaniya/T20-Indian-Cricket-Stats"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium"
@@ -1691,8 +1770,6 @@ export default function Portfolio() {
               </div>
             </motion.div>
 
-         
-
             <motion.div
               className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
               initial={{ opacity: 0, y: 50 }}
@@ -2127,26 +2204,43 @@ export default function Portfolio() {
               </div>
 
               <div className="flex justify-center lg:justify-start space-x-4">
+                {/* GitHub */}
                 <a
                   href="https://github.com/udaynandaniya"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-full hover:from-orange-600 hover:to-orange-500 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg"
+                  className="p-4 bg-gradient-to-r from-gray-100 to-gray-200 
+    dark:from-gray-700 dark:to-gray-800 
+    rounded-full 
+    hover:from-black hover:to-gray-900 hover:text-white 
+    transition-all duration-300 hover:scale-110 shadow-lg"
                 >
                   <Github size={24} />
                 </a>
+
+                {/* LinkedIn */}
                 <a
                   href="https://www.linkedin.com/in/uday-nandaniya-"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-700 dark:to-orange-800 rounded-full hover:from-orange-600 hover:to-orange-500 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg"
+                  className="p-4 bg-gradient-to-r from-blue-100 to-blue-200 
+    dark:from-blue-700 dark:to-blue-800 
+    rounded-full 
+    hover:from-blue-600 hover:to-blue-500 hover:text-white 
+    transition-all duration-300 hover:scale-110 shadow-lg"
                 >
                   <Linkedin size={24} />
                 </a>
+
+                {/* Share */}
                 <button
                   onClick={handleShare}
-                  className="p-4 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-700 dark:to-orange-800 rounded-full hover:from-orange-600 hover:to-orange-500 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg"
                   title="Share Portfolio"
+                  className="p-4 bg-gradient-to-r from-orange-100 to-orange-200 
+    dark:from-orange-700 dark:to-orange-800 
+    rounded-full 
+    hover:from-orange-600 hover:to-orange-500 hover:text-white 
+    transition-all duration-300 hover:scale-110 shadow-lg"
                 >
                   <Share2 size={24} />
                 </button>
